@@ -294,18 +294,23 @@ const CartScreen: React.FC = () => {
       // Guarantee active delivery location from live/background GPS
       let activeLoc = deliveryLocation;
       if (!activeLoc) {
-        const gps = loadSavedLiveGpsLocation() || (await pickupLiveGpsLocation(true));
-        activeLoc = {
-          address: gps.address || `Live Phone GPS (${gps.latitude.toFixed(6)}, ${gps.longitude.toFixed(6)})`,
-          latitude: gps.latitude,
-          longitude: gps.longitude,
-          googleMapsLink: gps.googleMapsUrl,
-          state: gps.state || 'India',
-          city: gps.city || 'India',
-          district: gps.district || '',
-          pincode: gps.pincode || '',
-        };
-        setDeliveryLocation(activeLoc);
+        try {
+          const gps = loadSavedLiveGpsLocation() || (await pickupLiveGpsLocation(true));
+          activeLoc = {
+            address: gps.address || `Live Phone GPS (${gps.latitude.toFixed(6)}, ${gps.longitude.toFixed(6)})`,
+            latitude: gps.latitude,
+            longitude: gps.longitude,
+            googleMapsLink: gps.googleMapsUrl,
+            state: gps.state || 'India',
+            city: gps.city || 'India',
+            district: gps.district || '',
+            pincode: gps.pincode || '',
+          };
+          setDeliveryLocation(activeLoc);
+        } catch {
+          setShowLocationPicker(true);
+          throw new Error('Compulsory: Please select or place your exact delivery location pin on the map before placing your order.');
+        }
       }
 
       const rawPhone = customerPhone.trim() || profile?.phone?.trim() || '+91 9876543210';
@@ -782,7 +787,7 @@ const CartScreen: React.FC = () => {
 
         {/* Legal & Policy Links */}
         <div className="py-4 text-center space-y-1.5 pb-24 text-[11px] text-slate-400">
-          <p>Food India is a unit of KulgamKart (kulgamkart.in)</p>
+          <p>Official Website: <a href="https://foodindia.sbs" target="_blank" rel="noopener noreferrer" className="text-orange-600 underline font-bold">foodindia.sbs</a> • A unit of KulgamKart (kulgamkart.in)</p>
           <div className="flex items-center justify-center gap-3 font-semibold text-slate-600">
             <button
               type="button"

@@ -91,15 +91,16 @@ const WelcomeScreen: React.FC = () => {
 
         <div className="bg-white/90 border border-slate-200/80 rounded-2xl p-2.5 text-[10px] text-slate-600 space-y-1">
           <p className="font-black text-slate-900">
-            Food India is a unit of KulgamKart •{' '}
+            Website:{' '}
             <a
-              href="https://kulgamkart.in"
+              href="https://foodindia.sbs"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-orange-600 underline"
+              className="text-orange-600 underline font-black"
             >
-              kulgamkart.in
-            </a>
+              foodindia.sbs
+            </a>{' '}
+            • A unit of KulgamKart (<a href="https://kulgamkart.in" target="_blank" rel="noopener noreferrer" className="text-orange-600 underline">kulgamkart.in</a>)
           </p>
           <p className="font-mono font-bold text-slate-700">
             GST: 01BMAPL3192D1CY • Udyam: UDYAM-JK-11-0018721

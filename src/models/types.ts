@@ -455,7 +455,7 @@ export interface Order {
   totalAmount: number;
   paymentMethod: 'COD';
   paymentStatus: 'pending' | 'pending_cod' | 'paid' | 'failed';
-  orderStatus: 'pending' | 'confirmed' | 'preparing' | 'ready_for_pickup' | 'out_for_delivery' | 'delivered' | 'cancelled';
+  orderStatus: 'pending' | 'confirmed' | 'preparing' | 'ready_for_pickup' | 'out_for_delivery' | 'delivered' | 'completed' | 'cancelled';
   statusHistory?: {
     status: string;
     timestamp: string;

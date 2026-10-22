@@ -1353,6 +1353,22 @@ const SellerDashboard: React.FC = () => {
           </p>
           <p className="text-[10px] text-indigo-200 mt-1">0% Commission Model</p>
         </button>
+
+        <button
+          type="button"
+          onClick={() => navigate('/plugin-seller-dashboard')}
+          className="bg-emerald-600 rounded-3xl p-5 text-white shadow-lg text-left col-span-2 flex items-center justify-between hover:bg-emerald-700 transition-colors"
+        >
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <MapPin className="w-4 h-4 text-emerald-200" />
+              <span className="text-[10px] font-bold text-emerald-200 uppercase">Plugin Storefront & Direct Orders</span>
+            </div>
+            <p className="font-black text-sm">Restaurant Map Seller Dashboard</p>
+            <p className="text-[11px] text-emerald-100 mt-0.5">Manage your map pin, custom menu & plugin direct orders</p>
+          </div>
+          <ChevronRight className="w-5 h-5 text-emerald-200" />
+        </button>
       </div>
 
       <div className="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm space-y-4">

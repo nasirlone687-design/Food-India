@@ -15,6 +15,7 @@ import {
   Star,
   Navigation,
   CheckCircle2,
+  MapPin,
 } from 'lucide-react';
 import ProfileTab from '../components/ProfileTab';
 import OrdersTab from '../components/OrdersTab';
@@ -536,7 +537,7 @@ const CustomerDashboard: React.FC = () => {
       <GpsPermissionModal
         isOpen={showGpsModal}
         onClose={() => setShowGpsModal(false)}
-        compulsory={!liveGps}
+        compulsory={false}
         initialPhone={profile?.phone || ''}
         title="Allow Location Access & Save Live GPS"
         onConfirmed={({ gps }) => {
@@ -577,6 +578,14 @@ const CustomerDashboard: React.FC = () => {
           >
             <HomeIcon size={20} />
             <span className="text-[9px] font-black uppercase tracking-widest">Home</span>
+          </button>
+          <button
+            onClick={() => navigate('/restaurant-map')}
+            className="flex flex-col items-center gap-1 transition-colors text-orange-400 hover:text-orange-300"
+            title="Open Restaurant Map Window"
+          >
+            <MapPin size={20} className="text-orange-400" />
+            <span className="text-[9px] font-black uppercase tracking-widest text-orange-400">Map</span>
           </button>
           <button
             onClick={() => setActiveTab('orders')}

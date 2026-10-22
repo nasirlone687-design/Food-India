@@ -279,12 +279,20 @@ const SellerRegistrationScreen: React.FC = () => {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-700 ml-1">
-                Device GPS & Kitchen Map Location
-              </label>
+              <div className="flex items-center justify-between ml-1">
+                <label className="text-xs font-bold text-slate-800">
+                  Kitchen Map Location <span className="text-red-600 font-black">* (Compulsory)</span>
+                </label>
+                <span className="text-[10px] text-slate-500 font-medium">
+                  Tap map / drag pin OR click &quot;Pickup Live GPS Location&quot;
+                </span>
+              </div>
+              <div className="bg-amber-50/60 p-2.5 rounded-xl border border-amber-200 text-[11px] text-amber-900 mb-1">
+                <strong>Seller Requirement:</strong> Setting kitchen location is compulsory. Use <strong>&quot;Pickup Live GPS Location&quot;</strong> to auto-detect your location, or tap the map/drag the pin to place your kitchen address manually.
+              </div>
               <div className="bg-white p-1 rounded-2xl border border-slate-200">
                 <LocationPicker
-                  label="Allow Device GPS or Search Kitchen Location"
+                  label="Set Kitchen Location (Compulsory)"
                   onLocationSelect={(loc) => setLocation(loc)}
                   autoLocate={true}
                 />

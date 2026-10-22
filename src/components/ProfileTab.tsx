@@ -563,6 +563,16 @@ const ProfileTab: React.FC = () => {
                         </span>
                         <ChevronRight size={14} />
                       </button>
+                      <button
+                        type="button"
+                        onClick={() => navigate('/refund')}
+                        className="w-full flex items-center justify-between font-bold text-orange-600 hover:underline py-1.5"
+                      >
+                        <span className="flex items-center gap-2">
+                          <FileText size={14} /> Refund & Cancellation Policy
+                        </span>
+                        <ChevronRight size={14} />
+                      </button>
                     </div>
                   )}
 

@@ -19,6 +19,7 @@ const TermsPrivacyScreen: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const getInitialSection = (path: string) => {
+    if (path.includes('delete') || path.includes('deletion')) return 'privacy';
     if (path.includes('privacy')) return 'privacy';
     if (path.includes('refund')) return 'refund';
     if (path.includes('about')) return 'about';
@@ -49,7 +50,7 @@ const TermsPrivacyScreen: React.FC = () => {
               Food India Legal, Privacy & About
             </h1>
             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest truncate">
-              A Unit of KulgamKart (kulgamkart.in)
+              foodindia.sbs • A Unit of KulgamKart (kulgamkart.in)
             </p>
           </div>
         </div>
@@ -351,14 +352,18 @@ const TermsPrivacyScreen: React.FC = () => {
               </p>
             </div>
 
-            <div className="space-y-2">
-              <h4 className="font-black text-slate-900 uppercase text-xs flex items-center gap-1.5">
-                <Trash2 size={14} className="text-red-500" />
-                4. Account Management & Support
+            <div className="space-y-2 p-4 bg-red-50/70 border border-red-200 rounded-2xl">
+              <h4 className="font-black text-red-900 uppercase text-xs flex items-center gap-1.5">
+                <Trash2 size={15} className="text-red-600" />
+                4. Account & Data Deletion Policy (Play Store Compliant)
               </h4>
-              <p>
-                Both Customers and Sellers can manage or deactivate their account at any time using the <strong>"Delete My Account"</strong> button located inside their Profile / Account Settings screen, or by contacting our support desk at <strong>+91 8825028335</strong> or <strong>+91 8825018335</strong>.
+              <p className="text-red-950">
+                Food India respects your right to privacy and data removal. Both Customers and Sellers can permanently delete their profile, order history, and saved addresses at any time:
               </p>
+              <ul className="space-y-1 text-red-900 font-medium pl-2">
+                <li>• <strong>In-App Deletion:</strong> Go to <strong>Profile / Account Settings</strong> and click <strong>&quot;Delete Account&quot;</strong>.</li>
+                <li>• <strong>Web Request:</strong> Submit an account deletion request via email to <strong className="font-bold text-red-950">lonen5408@gmail.com</strong> or phone/SMS to <strong className="font-bold text-red-950">+91 8825028335</strong> / <strong className="font-bold text-red-950">+91 8825018335</strong> with your registered phone number or email address. Your data will be deleted within 48 hours.</li>
+              </ul>
             </div>
           </div>
         )}
@@ -443,10 +448,16 @@ const TermsPrivacyScreen: React.FC = () => {
             </div>
 
             <p className="text-sm font-bold text-slate-900">
-              Food India is an official unit of KulgamKart (<a href="https://kulgamkart.in" target="_blank" rel="noopener noreferrer" className="text-orange-600 underline">kulgamkart.in</a>).
+              Food India Official Website: <a href="https://foodindia.sbs" target="_blank" rel="noopener noreferrer" className="text-orange-600 underline font-black">foodindia.sbs</a> • A Unit of KulgamKart (<a href="https://kulgamkart.in" target="_blank" rel="noopener noreferrer" className="text-orange-600 underline">kulgamkart.in</a>).
             </p>
 
             <div className="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-2">
+                <span className="font-black text-slate-600 uppercase text-[10px]">Official App Website</span>
+                <a href="https://foodindia.sbs" target="_blank" rel="noopener noreferrer" className="font-black text-orange-600 underline">
+                  foodindia.sbs
+                </a>
+              </div>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-2">
                 <span className="font-black text-slate-600 uppercase text-[10px]">Parent Unit & Website</span>
                 <span className="font-black text-slate-900">Food India — A Unit of KulgamKart (kulgamkart.in)</span>

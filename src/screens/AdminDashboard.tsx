@@ -30,8 +30,9 @@ import { useErrorLog, reportGlobalButtonStatus, reportGlobalError } from '../con
 import { notificationService } from '../services/notifications';
 import { orderService } from '../services/orders';
 import { format } from 'date-fns';
+import { PluginAdminSettings } from '../plugins/restaurantMap/components/PluginAdminSettings';
 
-type AdminTab = 'sellers' | 'documents' | 'restaurants' | 'products' | 'categories' | 'delivery' | 'users' | 'plans' | 'payments' | 'orders' | 'logs' | 'settings';
+type AdminTab = 'sellers' | 'documents' | 'restaurants' | 'products' | 'categories' | 'delivery' | 'users' | 'plans' | 'payments' | 'orders' | 'logs' | 'settings' | 'restaurant_map';
 
 export default function AdminDashboard() {
   const { user, profile } = useAuth();
@@ -2879,6 +2880,11 @@ export default function AdminDashboard() {
             <DollarSign size={18} /> <span className="font-bold text-xs md:text-sm">Payments</span>
           </button>
 
+          <p className="hidden md:block text-[9px] font-black text-slate-500 uppercase tracking-[0.2em] mt-6 mb-2 px-4">Plugins</p>
+          <button onClick={() => setActiveTab('restaurant_map')} className={`shrink-0 flex items-center gap-2 md:gap-3 px-4 py-2.5 md:py-3 rounded-2xl transition-all ${activeTab === 'restaurant_map' ? 'bg-orange-500 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+            <MapPin size={18} /> <span className="font-bold text-xs md:text-sm">Restaurant Map (ON/OFF)</span>
+          </button>
+
           <p className="hidden md:block text-[9px] font-black text-slate-500 uppercase tracking-[0.2em] mt-6 mb-2 px-4">System</p>
           <button onClick={() => setActiveTab('users')} className={`shrink-0 flex items-center justify-between gap-2 md:gap-3 px-4 py-2.5 md:py-3 rounded-2xl transition-all ${activeTab === 'users' ? 'bg-orange-500 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
             <span className="flex items-center gap-2"><Users size={18} /> <span className="font-bold text-xs md:text-sm">Customers & Users</span></span>
@@ -3000,7 +3006,16 @@ export default function AdminDashboard() {
             {activeTab === 'delivery' && renderDeliveryIntegrations()}
             {activeTab === 'payments' && renderPayments()}
             {activeTab === 'logs' && renderLogs()}
-            {activeTab === 'settings' && renderSettings()}
+            {activeTab === 'settings' && (
+              <div className="space-y-8">
+                {renderSettings()}
+                <div className="pt-6 border-t border-slate-200">
+                  <h3 className="text-xl font-black text-slate-900 mb-4">Plugin Controls</h3>
+                  <PluginAdminSettings />
+                </div>
+              </div>
+            )}
+            {activeTab === 'restaurant_map' && <PluginAdminSettings />}
             {activeTab === 'orders' && (
               <div className="space-y-6">
                 <div className="flex flex-wrap items-center justify-between gap-4 mb-2">

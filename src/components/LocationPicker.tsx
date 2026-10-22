@@ -64,8 +64,17 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
   const [copiedCoords, setCopiedCoords] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [manualLatInput, setManualLatInput] = useState('');
+  const [manualLngInput, setManualLngInput] = useState('');
 
   const { suggestions, resetSession, isLoading: suggestionsLoading } = useAutocompleteSuggestions(searchQuery);
+
+  useEffect(() => {
+    if (markerLocation && Number.isFinite(markerLocation.lat) && Number.isFinite(markerLocation.lng)) {
+      setManualLatInput(markerLocation.lat.toString());
+      setManualLngInput(markerLocation.lng.toString());
+    }
+  }, [markerLocation.lat, markerLocation.lng]);
 
   // Sync when initialLocation changes
   useEffect(() => {
@@ -222,6 +231,14 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
     [map, onLocationSelect]
   );
 
+  const handleApplyManualCoords = useCallback(async () => {
+    const lat = parseFloat(manualLatInput);
+    const lng = parseFloat(manualLngInput);
+    if (!Number.isFinite(lat) || lat < -90 || lat > 90) return;
+    if (!Number.isFinite(lng) || lng < -180 || lng > 180) return;
+    await updateLocationFromCoords({ lat, lng });
+  }, [manualLatInput, manualLngInput, updateLocationFromCoords]);
+
   // Handle Marker Drag End
   const handleMarkerDragEnd = useCallback(
     (e: google.maps.MapMouseEvent) => {
@@ -234,9 +251,15 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
 
   // Handle Map Click/Tap: Move location pin to touched position
   const handleMapClick = useCallback(
-    (e: google.maps.MapMouseEvent) => {
-      if (e.latLng) {
-        updateLocationFromCoords({ lat: e.latLng.lat(), lng: e.latLng.lng() });
+    (e: any) => {
+      if (e?.detail?.latLng) {
+        updateLocationFromCoords({ lat: e.detail.latLng.lat, lng: e.detail.latLng.lng });
+      } else if (e?.latLng) {
+        const lat = typeof e.latLng.lat === 'function' ? e.latLng.lat() : e.latLng.lat;
+        const lng = typeof e.latLng.lng === 'function' ? e.latLng.lng() : e.latLng.lng;
+        if (typeof lat === 'number' && typeof lng === 'number') {
+          updateLocationFromCoords({ lat, lng });
+        }
       }
     },
     [updateLocationFromCoords]
@@ -343,6 +366,39 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
           >
             Lookup PIN / City
           </button>
+        </div>
+
+        {/* Manual Latitude & Longitude Coordinates Entry Row */}
+        <div className="mt-2.5 p-2.5 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
+          <label className="text-[10px] font-black text-slate-700 uppercase tracking-wider block">
+            Or Enter GPS Coordinates Manually
+          </label>
+          <div className="flex gap-2">
+            <input
+              type="number"
+              step="any"
+              value={manualLatInput}
+              onChange={(e) => setManualLatInput(e.target.value)}
+              placeholder="Latitude (e.g. 28.6139)"
+              className="flex-1 h-9 px-2.5 bg-white border border-slate-200 rounded-lg text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-orange-500"
+            />
+            <input
+              type="number"
+              step="any"
+              value={manualLngInput}
+              onChange={(e) => setManualLngInput(e.target.value)}
+              placeholder="Longitude (e.g. 77.2090)"
+              className="flex-1 h-9 px-2.5 bg-white border border-slate-200 rounded-lg text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-orange-500"
+            />
+            <button
+              type="button"
+              onClick={handleApplyManualCoords}
+              disabled={!manualLatInput.trim() || !manualLngInput.trim()}
+              className="px-3 h-9 bg-slate-900 hover:bg-orange-600 disabled:opacity-50 text-white rounded-lg text-[10px] font-black uppercase tracking-wider shrink-0 transition-colors"
+            >
+              Set Lat/Lng
+            </button>
+          </div>
         </div>
 
         {showSuggestions && suggestions.length > 0 && (

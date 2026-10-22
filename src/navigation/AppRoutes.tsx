@@ -21,6 +21,9 @@ import VerificationScreen from '@/screens/VerificationScreen';
 import SubscriptionScreen from '@/screens/SubscriptionScreen';
 import AdminAuthScreen from '@/screens/AdminAuthScreen';
 import TermsPrivacyScreen from '@/screens/TermsPrivacyScreen';
+import { RestaurantMapWindow } from '@/plugins/restaurantMap/screens/RestaurantMapWindow';
+import { StorefrontScreen } from '@/plugins/restaurantMap/screens/StorefrontScreen';
+import { PluginSellerDashboard } from '@/plugins/restaurantMap/screens/PluginSellerDashboard';
 import { useAuth } from '@/context/AuthContext';
 import { UserRole } from '@/models/types';
 
@@ -91,7 +94,14 @@ export const AppRoutes = () => {
       <Route path="/privacy" element={<TermsPrivacyScreen />} />
       <Route path="/refund" element={<TermsPrivacyScreen />} />
       <Route path="/refund-policy" element={<TermsPrivacyScreen />} />
+      <Route path="/delete-account" element={<TermsPrivacyScreen />} />
+      <Route path="/account-deletion" element={<TermsPrivacyScreen />} />
       <Route path="/about" element={<TermsPrivacyScreen />} />
+
+      {/* Restaurant Map Plugin Dedicated Isolated Routes */}
+      <Route path="/restaurant-map" element={<RestaurantMapWindow />} />
+      <Route path="/r/:restaurantSlug" element={<StorefrontScreen />} />
+      <Route path="/plugin-seller-dashboard" element={<PluginSellerDashboard />} />
 
       {/* Auth Routes */}
       <Route path="/customer-auth" element={<CustomerAuthScreen />} />

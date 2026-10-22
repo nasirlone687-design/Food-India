@@ -33,6 +33,9 @@ interface DashboardHeaderProps {
   onProfileClick?: () => void;
 }
 
+import { useNavigate } from 'react-router-dom';
+import { pluginSettingsService } from '../plugins/restaurantMap/services/pluginSettingsService';
+
 export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
   address = 'Allow Phone GPS Location',
   onAddressClick,
@@ -40,6 +43,7 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
   onCartClick,
   onProfileClick,
 }) => {
+  const navigate = useNavigate();
   const { itemCount } = useCart();
   const { user, profile } = useAuth();
   const [liveGps, setLiveGps] = useState<GpsCoordinates | null>(() => loadSavedLiveGpsLocation());
@@ -49,6 +53,14 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
   const [showNotifModal, setShowNotifModal] = useState(false);
   const [showGpsModal, setShowGpsModal] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
+  const [pluginEnabled, setPluginEnabled] = useState(false);
+
+  useEffect(() => {
+    const unsubPlugin = pluginSettingsService.subscribeSettings((cfg) => {
+      setPluginEnabled(cfg?.isEnabled || false);
+    });
+    return () => unsubPlugin();
+  }, []);
 
   useEffect(() => {
     const devCustId = getOrCreateCustomerDeviceId();
@@ -172,7 +184,18 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
             </button>
           </div>
 
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1.5">
+            {pluginEnabled && (
+              <button
+                type="button"
+                onClick={() => navigate('/restaurant-map')}
+                className="px-3 py-1.5 bg-orange-500 hover:bg-orange-600 text-white rounded-full text-xs font-black uppercase tracking-wider flex items-center gap-1 shadow-md transition-all shrink-0"
+                title="Open Restaurant Map & Direct Ordering Window"
+              >
+                <MapPin size={13} />
+                <span className="hidden sm:inline">Restaurant Map</span>
+              </button>
+            )}
             <button
               onClick={() => setShowNotifModal(true)}
               className="w-10 h-10 flex items-center justify-center text-slate-600 relative hover:bg-slate-50 rounded-full transition-colors"

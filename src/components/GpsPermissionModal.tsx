@@ -21,6 +21,7 @@ import {
   loadSavedLiveGpsLocation,
   getGoogleMapsCoordUrl,
   lookupLocationByPinOrCity,
+  reverseGeocodeStructured,
   isLegacyFakeCoordinate,
   saveGpsLocationToFirestore,
   markSessionConfirmedGps,
@@ -57,6 +58,8 @@ export const GpsPermissionModal: React.FC<GpsPermissionModalProps> = ({
   const [phone, setPhone] = useState(initialPhone || profile?.phone || '');
   const [customAddress, setCustomAddress] = useState('');
   const [pinOrCityInput, setPinOrCityInput] = useState('');
+  const [manualLat, setManualLat] = useState('');
+  const [manualLng, setManualLng] = useState('');
   const [locating, setLocating] = useState(false);
   const [lookingUpPin, setLookingUpPin] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -65,6 +68,13 @@ export const GpsPermissionModal: React.FC<GpsPermissionModalProps> = ({
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [showSettingsGuide, setShowSettingsGuide] = useState(false);
   const [guidePlatform, setGuidePlatform] = useState<'android' | 'ios' | 'app'>('android');
+
+  useEffect(() => {
+    if (gps) {
+      setManualLat(gps.latitude.toString());
+      setManualLng(gps.longitude.toString());
+    }
+  }, [gps]);
 
   useEffect(() => {
     if (initialPhone || profile?.phone) {
@@ -193,6 +203,54 @@ export const GpsPermissionModal: React.FC<GpsPermissionModalProps> = ({
       setErrorMessage(err?.message || 'Could not find coordinates for that PIN or city.');
     } finally {
       setLookingUpPin(false);
+    }
+  };
+
+  const handleApplyManualCoordinates = async () => {
+    const lat = parseFloat(manualLat);
+    const lng = parseFloat(manualLng);
+    if (!Number.isFinite(lat) || lat < -90 || lat > 90) {
+      setErrorMessage('Please enter a valid Latitude (-90 to 90).');
+      return;
+    }
+    if (!Number.isFinite(lng) || lng < -180 || lng > 180) {
+      setErrorMessage('Please enter a valid Longitude (-180 to 180).');
+      return;
+    }
+    setErrorMessage(null);
+    setStatusMessage(null);
+    try {
+      const geo = await reverseGeocodeStructured(lat, lng);
+      const resolvedGps: GpsCoordinates = {
+        latitude: Number(lat.toFixed(6)),
+        longitude: Number(lng.toFixed(6)),
+        address: geo.address || customAddress || `Coordinates (${lat.toFixed(6)}, ${lng.toFixed(6)})`,
+        city: geo.city,
+        district: geo.district,
+        state: geo.state,
+        pincode: geo.pincode,
+        googleMapsUrl: getGoogleMapsCoordUrl(lat, lng),
+        capturedAt: new Date().toISOString(),
+        source: 'device_gps',
+      };
+      try {
+        localStorage.setItem('food_india_live_gps', JSON.stringify(resolvedGps));
+      } catch {
+        // ignore
+      }
+      await saveGpsLocationToFirestore(resolvedGps, {
+        phone: phone.trim() || profile?.phone,
+        uid: user?.uid,
+        role: profile?.role,
+      });
+      markSessionConfirmedGps();
+      setGps(resolvedGps);
+      if (!customAddress) setCustomAddress(resolvedGps.address);
+      setStatusMessage(
+        `Manual coordinates locked & saved (${resolvedGps.latitude.toFixed(6)}, ${resolvedGps.longitude.toFixed(6)})!`
+      );
+    } catch (err: any) {
+      setErrorMessage(err?.message || 'Failed to apply manual coordinates.');
     }
   };
 
@@ -350,7 +408,7 @@ export const GpsPermissionModal: React.FC<GpsPermissionModalProps> = ({
     }
   };
 
-  const canDismiss = !compulsory || Boolean(gps);
+  const canDismiss = true; // Location pickup is never compulsory
 
   return (
     <div className="fixed inset-0 z-[100] bg-slate-950/80 backdrop-blur-sm overflow-y-auto flex items-center justify-center p-3 sm:p-4">
@@ -507,10 +565,10 @@ export const GpsPermissionModal: React.FC<GpsPermissionModalProps> = ({
             </div>
           )}
 
-          {/* PIN Code / City Exact Lookup (if browser permission is blocked in WebView) */}
+          {/* PIN Code / City Exact Lookup */}
           <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200 space-y-2">
             <label className="text-[10px] font-black text-slate-600 uppercase tracking-wider block">
-              Or Pin Exact Coordinates by 6-Digit PIN Code / City
+              Or Pin Exact Location by 6-Digit PIN Code / City
             </label>
             <div className="flex gap-2">
               <input
@@ -530,6 +588,47 @@ export const GpsPermissionModal: React.FC<GpsPermissionModalProps> = ({
                 <span>Pin GPS</span>
               </button>
             </div>
+          </div>
+
+          {/* Manual Latitude & Longitude Coordinates Input Section */}
+          <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200 space-y-2">
+            <label className="text-[10px] font-black text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+              <MapPin size={12} className="text-orange-500" />
+              <span>Or Enter GPS Coordinates Manually (Latitude &amp; Longitude)</span>
+            </label>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <span className="text-[9px] font-bold text-slate-500 uppercase block mb-0.5">Latitude</span>
+                <input
+                  type="number"
+                  step="any"
+                  value={manualLat}
+                  onChange={(e) => setManualLat(e.target.value)}
+                  placeholder="e.g. 34.0837"
+                  className="w-full h-10 px-3 bg-white border border-slate-200 rounded-xl text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-orange-500"
+                />
+              </div>
+              <div>
+                <span className="text-[9px] font-bold text-slate-500 uppercase block mb-0.5">Longitude</span>
+                <input
+                  type="number"
+                  step="any"
+                  value={manualLng}
+                  onChange={(e) => setManualLng(e.target.value)}
+                  placeholder="e.g. 74.7973"
+                  className="w-full h-10 px-3 bg-white border border-slate-200 rounded-xl text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-orange-500"
+                />
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={handleApplyManualCoordinates}
+              disabled={!manualLat.trim() || !manualLng.trim()}
+              className="w-full py-2 bg-slate-900 hover:bg-orange-600 disabled:opacity-50 text-white rounded-xl text-[10px] font-black uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
+            >
+              <Sparkles size={12} />
+              <span>Set Manual Coordinates</span>
+            </button>
           </div>
 
           {/* Live Coordinates & Direct Google Maps Pin Box */}

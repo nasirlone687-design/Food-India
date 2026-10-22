@@ -411,8 +411,8 @@ export async function reverseGeocodeCoordinates(
 }
 
 /**
- * Syncs the demo/test restaurant coordinates to stay near the user's real live GPS
- * so demo dishes show realistic local proximity when testing in any city/state.
+ * Production mode helper (no-op)
+ */
 export async function syncNearbyDemoKitchenToUserGps(_latitude: number, _longitude: number): Promise<void> {
   // Production mode: real restaurants only, no demo kitchen updates
   return;
