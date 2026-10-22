@@ -1,0 +1,6 @@
+{
+  "name": "FOOD INDIA",
+  "description": "Authentic food delivery from the heart of Kashmir with real-time tracking and seller management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

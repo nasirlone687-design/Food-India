@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "Food India",
+    "slug": "food-india",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#F97316"
+    },
+    "android": {
+      "package": "com.foodindia.marketplace",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#F97316"
+      },
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "INTERNET"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Food India to access your location for accurate delivery distance and COD fee calculation."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow Food India to access your photos to upload 5 product images and seller verification documents."
+        }
+      ]
+    ]
+  }
+}

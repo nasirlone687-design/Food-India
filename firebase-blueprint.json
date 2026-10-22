@@ -1,0 +1,495 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Core identity for all users.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "fullName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "role": { "type": "string", "enum": ["customer", "seller", "admin"] },
+        "photoURL": { "type": "string" },
+        "accountStatus": { "type": "string", "enum": ["active", "pending", "suspended"] },
+        "registrationDate": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "lastLoginAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "fullName", "email", "role"]
+    },
+    "Customer": {
+      "title": "Customer",
+      "description": "Customer specific data.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "savedAddresses": { "type": "array", "items": { "type": "string" } },
+        "defaultAddressId": { "type": "string" },
+        "totalOrders": { "type": "number" },
+        "completedOrders": { "type": "number" },
+        "cancelledOrders": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Seller": {
+      "title": "Seller",
+      "description": "Seller specific data.",
+      "type": "object",
+      "properties": {
+        "sellerId": { "type": "string" },
+        "uid": { "type": "string" },
+        "ownerName": { "type": "string" },
+        "restaurantId": { "type": "string" },
+        "registrationDate": { "type": "string", "format": "date-time" },
+        "verificationStatus": { "type": "string", "enum": ["pending", "verified", "rejected"] },
+        "verificationNotes": { "type": "string" },
+        "approvedAt": { "type": "string", "format": "date-time" },
+        "planId": { "type": "string" },
+        "subscriptionStatus": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Restaurant": {
+      "title": "Restaurant",
+      "description": "Restaurant details.",
+      "type": "object",
+      "properties": {
+        "restaurantId": { "type": "string" },
+        "sellerId": { "type": "string" },
+        "restaurantName": { "type": "string" },
+        "description": { "type": "string" },
+        "logoPath": { "type": "string" },
+        "coverImagePath": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "address": { "type": "string" },
+        "locality": { "type": "string" },
+        "district": { "type": "string" },
+        "state": { "type": "string" },
+        "postalCode": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "googleMapsLink": { "type": "string" },
+        "openingHours": { "type": "object" },
+        "isOpen": { "type": "boolean" },
+        "preparationTime": { "type": "string" },
+        "deliveryPricingMode": { "type": "string" },
+        "baseDeliveryCharge": { "type": "number" },
+        "deliveryPricePerKm": { "type": "number" },
+        "deliveryRanges": { "type": "array" },
+        "maximumDeliveryDistanceKm": { "type": "number" },
+        "allowOwnDeliveryStaff": { "type": "boolean" },
+        "approvalStatus": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Category": {
+      "title": "Category",
+      "description": "Menu categories.",
+      "type": "object",
+      "properties": {
+        "categoryId": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "imagePath": { "type": "string" },
+        "parentCategoryId": { "type": "string" },
+        "displayOrder": { "type": "number" },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Food items.",
+      "type": "object",
+      "properties": {
+        "productId": { "type": "string" },
+        "restaurantId": { "type": "string" },
+        "sellerId": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "categoryId": { "type": "string" },
+        "subcategoryId": { "type": "string" },
+        "price": { "type": "number" },
+        "imagePaths": { "type": "array", "items": { "type": "string" } },
+        "variants": { "type": "array" },
+        "addOnGroups": { "type": "array" },
+        "preparationTime": { "type": "string" },
+        "isAvailable": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Address": {
+      "title": "Address",
+      "description": "Saved customer addresses.",
+      "type": "object",
+      "properties": {
+        "addressId": { "type": "string" },
+        "uid": { "type": "string" },
+        "label": { "type": "string" },
+        "recipientName": { "type": "string" },
+        "recipientPhone": { "type": "string" },
+        "fullAddress": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "googleMapsLink": { "type": "string" },
+        "isDefault": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Cart": {
+      "title": "Cart",
+      "description": "Shopping carts.",
+      "type": "object",
+      "properties": {
+        "cartId": { "type": "string" },
+        "customerId": { "type": "string" },
+        "restaurantId": { "type": "string" },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "deliveryCharge": { "type": "number" },
+        "total": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer food orders with COD and delivery provider integration.",
+      "type": "object",
+      "properties": {
+        "orderId": { "type": "string" },
+        "orderNumber": { "type": "string" },
+        "customerId": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "sellerId": { "type": "string" },
+        "restaurantId": { "type": "string" },
+        "restaurantName": { "type": "string" },
+        "itemsSnapshot": { "type": "array" },
+        "itemSubtotal": { "type": "number" },
+        "deliveryCharge": { "type": "number" },
+        "totalAmount": { "type": "number" },
+        "paymentMethod": { "type": "string" },
+        "paymentStatus": { "type": "string" },
+        "orderStatus": { "type": "string", "enum": ["pending", "confirmed", "preparing", "ready_for_pickup", "out_for_delivery", "delivered", "cancelled"] },
+        "statusHistory": { "type": "array" },
+        "addressSnapshot": { "type": "object" },
+        "selectedDeliveryProviderId": { "type": "string" },
+        "selectedDeliveryProviderCode": { "type": "string" },
+        "selectedDeliveryProviderName": { "type": "string" },
+        "selectedDeliveryProviderType": { "type": "string" },
+        "selectedDeliveryQuoteId": { "type": "string" },
+        "deliveryBookingId": { "type": "string" },
+        "deliveryBookingStatus": { "type": "string" },
+        "deliveryTrackingRef": { "type": "string" },
+        "deliveryVerifiedByWebhook": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "deliveredAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "DeliveryProvider": {
+      "title": "DeliveryProvider",
+      "description": "Configured delivery providers (own staff, Food India fleet, sandbox test provider, and official 3P logistics APIs).",
+      "type": "object",
+      "properties": {
+        "providerId": { "type": "string" },
+        "providerCode": { "type": "string" },
+        "name": { "type": "string" },
+        "logoUrl": { "type": "string" },
+        "providerType": { "type": "string", "enum": ["restaurant_staff", "food_india_fleet", "sandbox_test_provider", "third_party_api"] },
+        "integrationStatus": { "type": "string", "enum": ["active_sandbox", "active_live", "unsupported_unconfigured", "disabled"] },
+        "isEnabled": { "type": "boolean" },
+        "isTestMockProvider": { "type": "boolean" },
+        "priority": { "type": "number" },
+        "fallbackProviderId": { "type": "string" },
+        "apiBaseUrl": { "type": "string" },
+        "webhookEndpoint": { "type": "string" },
+        "supportsLiveQuotes": { "type": "boolean" },
+        "supportsWebhooks": { "type": "boolean" },
+        "supportsCancellation": { "type": "boolean" },
+        "supportsCodCollection": { "type": "boolean" },
+        "baseFee": { "type": "number" },
+        "perKmFee": { "type": "number" },
+        "maxDistanceKm": { "type": "number" },
+        "conditionsNote": { "type": "string" },
+        "onboardingRequirements": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "DeliveryServiceArea": {
+      "title": "DeliveryServiceArea",
+      "description": "Multi-state, multi-city, district, PIN code, and GPS coverage zone for a delivery provider.",
+      "type": "object",
+      "properties": {
+        "areaId": { "type": "string" },
+        "providerId": { "type": "string" },
+        "providerName": { "type": "string" },
+        "state": { "type": "string" },
+        "city": { "type": "string" },
+        "district": { "type": "string" },
+        "pincodes": { "type": "array" },
+        "centerLatitude": { "type": "number" },
+        "centerLongitude": { "type": "number" },
+        "radiusKm": { "type": "number" },
+        "isActive": { "type": "boolean" },
+        "areaRulesNote": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "DeliveryQuote": {
+      "title": "DeliveryQuote",
+      "description": "Delivery fee and ETA quote generated for a specific pickup and dropoff pair.",
+      "type": "object",
+      "properties": {
+        "quoteId": { "type": "string" },
+        "providerId": { "type": "string" },
+        "providerCode": { "type": "string" },
+        "providerName": { "type": "string" },
+        "providerType": { "type": "string" },
+        "restaurantId": { "type": "string" },
+        "distanceKm": { "type": "number" },
+        "estimatedFee": { "type": "number" },
+        "currency": { "type": "string" },
+        "estimatedDurationMin": { "type": "number" },
+        "coverageMatchDetails": { "type": "string" },
+        "isEligible": { "type": "boolean" },
+        "expiresAt": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "DeliveryBooking": {
+      "title": "DeliveryBooking",
+      "description": "Confirmed delivery booking created after restaurant acceptance.",
+      "type": "object",
+      "properties": {
+        "bookingId": { "type": "string" },
+        "idempotencyKey": { "type": "string" },
+        "orderId": { "type": "string" },
+        "orderNumber": { "type": "string" },
+        "customerId": { "type": "string" },
+        "sellerId": { "type": "string" },
+        "restaurantId": { "type": "string" },
+        "providerId": { "type": "string" },
+        "providerCode": { "type": "string" },
+        "providerName": { "type": "string" },
+        "providerBookingRef": { "type": "string" },
+        "trackingRef": { "type": "string" },
+        "quotedFee": { "type": "number" },
+        "bookingStatus": { "type": "string" },
+        "webhookVerifiedDelivery": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "DeliveryStatusHistory": {
+      "title": "DeliveryStatusHistory",
+      "description": "Immutable status transition log for a delivery booking.",
+      "type": "object",
+      "properties": {
+        "historyId": { "type": "string" },
+        "bookingId": { "type": "string" },
+        "orderId": { "type": "string" },
+        "providerCode": { "type": "string" },
+        "status": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "source": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    },
+    "DeliveryWebhookEvent": {
+      "title": "DeliveryWebhookEvent",
+      "description": "Verified incoming webhook audit log from third-party delivery providers.",
+      "type": "object",
+      "properties": {
+        "eventId": { "type": "string" },
+        "providerCode": { "type": "string" },
+        "bookingId": { "type": "string" },
+        "orderId": { "type": "string" },
+        "eventType": { "type": "string" },
+        "signatureVerified": { "type": "boolean" },
+        "processingStatus": { "type": "string" },
+        "payloadSummary": { "type": "string" },
+        "receivedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "SubscriptionPlan": {
+      "title": "SubscriptionPlan",
+      "description": "Seller subscription plans.",
+      "type": "object",
+      "properties": {
+        "planId": { "type": "string" },
+        "name": { "type": "string" },
+        "price": { "type": "number" },
+        "currency": { "type": "string" },
+        "durationDays": { "type": "number" },
+        "features": { "type": "array" },
+        "isActive": { "type": "boolean" }
+      }
+    },
+    "SellerSubscription": {
+      "title": "SellerSubscription",
+      "description": "Seller subscription record linked to a Razorpay Payment Link.",
+      "type": "object",
+      "properties": {
+        "subscriptionId": { "type": "string" },
+        "sellerId": { "type": "string" },
+        "planId": { "type": "string" },
+        "planName": { "type": "string" },
+        "durationDays": { "type": "number" },
+        "amount": { "type": "number" },
+        "currency": { "type": "string" },
+        "paymentId": { "type": "string" },
+        "razorpayPaymentLinkId": { "type": "string" },
+        "razorpayPaymentLinkUrl": { "type": "string" },
+        "paymentStatus": { "type": "string", "enum": ["pending", "paid", "failed"] },
+        "activationStatus": { "type": "string", "enum": ["pending_payment", "pending_admin_review", "active", "expired", "rejected"] },
+        "startDate": { "type": "string", "format": "date-time" },
+        "expiryDate": { "type": "string", "format": "date-time" },
+        "activatedBy": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Payment": {
+      "title": "Payment",
+      "description": "Razorpay Payment Link and webhook verification record for seller subscriptions.",
+      "type": "object",
+      "properties": {
+        "paymentId": { "type": "string" },
+        "sellerId": { "type": "string" },
+        "sellerName": { "type": "string" },
+        "planId": { "type": "string" },
+        "planName": { "type": "string" },
+        "durationDays": { "type": "number" },
+        "subscriptionId": { "type": "string" },
+        "razorpayPaymentLinkId": { "type": "string" },
+        "razorpayPaymentLinkUrl": { "type": "string" },
+        "razorpayReferenceId": { "type": "string" },
+        "razorpayPaymentId": { "type": "string" },
+        "amount": { "type": "number" },
+        "currency": { "type": "string" },
+        "paymentStatus": { "type": "string", "enum": ["pending", "paid", "captured", "failed"] },
+        "webhookVerified": { "type": "boolean" },
+        "webhookEventId": { "type": "string" },
+        "verifiedAt": { "type": "string", "format": "date-time" },
+        "activatedByAdmin": { "type": "boolean" },
+        "environment": { "type": "string", "enum": ["test", "live"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "SellerDocument": {
+      "title": "SellerDocument",
+      "description": "Seller verification documents.",
+      "type": "object",
+      "properties": {
+        "documentId": { "type": "string" },
+        "sellerId": { "type": "string" },
+        "documentType": { "type": "string" },
+        "storagePath": { "type": "string" },
+        "verificationStatus": { "type": "string" },
+        "uploadedAt": { "type": "string", "format": "date-time" },
+        "reviewedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Review": {
+      "title": "Review",
+      "description": "Order reviews.",
+      "type": "object",
+      "properties": {
+        "reviewId": { "type": "string" },
+        "customerId": { "type": "string" },
+        "restaurantId": { "type": "string" },
+        "orderId": { "type": "string" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Notification": {
+      "title": "Notification",
+      "description": "User notifications.",
+      "type": "object",
+      "properties": {
+        "notificationId": { "type": "string" },
+        "recipientUid": { "type": "string" },
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "relatedOrderId": { "type": "string" },
+        "readAt": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "AdminSettings": {
+      "title": "AdminSettings",
+      "description": "Global platform settings.",
+      "type": "object",
+      "properties": {
+        "settingId": { "type": "string" },
+        "privacyPolicyURL": { "type": "string" },
+        "termsAndConditionsURL": { "type": "string" },
+        "deliveryLimits": {
+          "type": "object",
+          "properties": {
+            "maximumDistanceKm": { "type": "number" },
+            "globalBaseCharge": { "type": "number" },
+            "minOrderValue": { "type": "number" }
+          }
+        },
+        "cancellationRules": { "type": "object" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "Admin audit logs.",
+      "type": "object",
+      "properties": {
+        "logId": { "type": "string" },
+        "adminId": { "type": "string" },
+        "action": { "type": "string" },
+        "targetType": { "type": "string" },
+        "targetId": { "type": "string" },
+        "details": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["adminId", "action", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": { "schema": "User", "description": "Core identity for all users." },
+    "/customers/{userId}": { "schema": "Customer", "description": "Customer specific data." },
+    "/sellers/{sellerId}": { "schema": "Seller", "description": "Seller specific data." },
+    "/restaurants/{restaurantId}": { "schema": "Restaurant", "description": "Restaurant details." },
+    "/categories/{categoryId}": { "schema": "Category", "description": "Food categories." },
+    "/products/{productId}": { "schema": "Product", "description": "Food products/menu items." },
+    "/addresses/{addressId}": { "schema": "Address", "description": "User saved addresses." },
+    "/carts/{cartId}": { "schema": "Cart", "description": "Active shopping carts." },
+    "/orders/{orderId}": { "schema": "Order", "description": "Order records." },
+    "/deliveryProviders/{providerId}": { "schema": "DeliveryProvider", "description": "Delivery provider integrations." },
+    "/deliveryServiceAreas/{areaId}": { "schema": "DeliveryServiceArea", "description": "State, city, district, and GPS service areas for delivery providers." },
+    "/deliveryQuotes/{quoteId}": { "schema": "DeliveryQuote", "description": "Generated delivery quotes." },
+    "/deliveryBookings/{bookingId}": { "schema": "DeliveryBooking", "description": "Confirmed delivery bookings." },
+    "/deliveryStatusHistory/{historyId}": { "schema": "DeliveryStatusHistory", "description": "Delivery booking status history." },
+    "/deliveryWebhookEvents/{eventId}": { "schema": "DeliveryWebhookEvent", "description": "Verified delivery webhook events." },
+    "/subscriptionPlans/{planId}": { "schema": "SubscriptionPlan", "description": "Seller subscription plans." },
+    "/sellerSubscriptions/{subscriptionId}": { "schema": "SellerSubscription", "description": "Seller active subscriptions." },
+    "/payments/{paymentId}": { "schema": "Payment", "description": "Payment records." },
+    "/sellerDocuments/{documentId}": { "schema": "SellerDocument", "description": "Seller verification documents." },
+    "/reviews/{reviewId}": { "schema": "Review", "description": "Order reviews." },
+    "/notifications/{notificationId}": { "schema": "Notification", "description": "User notifications." },
+    "/adminSettings/{settingId}": { "schema": "AdminSettings", "description": "Global admin settings." },
+    "/auditLogs/{logId}": { "schema": "AuditLog", "description": "System audit logs." }
+  }
+}
