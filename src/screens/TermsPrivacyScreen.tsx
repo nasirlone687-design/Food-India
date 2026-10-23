@@ -229,6 +229,9 @@ const TermsPrivacyScreen: React.FC = () => {
                 Terms & Conditions of Service
               </h3>
             </div>
+            <p className="text-sm font-bold text-slate-900">
+              View official terms at: <a href="https://foodindia.sbs/terms" target="_blank" rel="noopener noreferrer" className="text-orange-600 underline font-black">foodindia.sbs/terms</a>
+            </p>
 
             <div className="space-y-2">
               <h4 className="font-black text-slate-900 uppercase text-xs">
@@ -313,6 +316,9 @@ const TermsPrivacyScreen: React.FC = () => {
                 Privacy Policy & Data Protection
               </h3>
             </div>
+            <p className="text-sm font-bold text-slate-900">
+              View official privacy policy at: <a href="https://foodindia.sbs/privacy" target="_blank" rel="noopener noreferrer" className="text-emerald-600 underline font-black">foodindia.sbs/privacy</a>
+            </p>
 
             <div className="space-y-2">
               <h4 className="font-black text-slate-900 uppercase text-xs">
@@ -357,6 +363,9 @@ const TermsPrivacyScreen: React.FC = () => {
                 <Trash2 size={15} className="text-red-600" />
                 4. Account & Data Deletion Policy (Play Store Compliant)
               </h4>
+              <p className="text-red-950 font-bold">
+                Learn more at: <a href="https://foodindia.sbs/delete-account" target="_blank" rel="noopener noreferrer" className="text-red-600 underline">foodindia.sbs/delete-account</a>
+              </p>
               <p className="text-red-950">
                 Food India respects your right to privacy and data removal. Both Customers and Sellers can permanently delete their profile, order history, and saved addresses at any time:
               </p>
@@ -368,6 +377,7 @@ const TermsPrivacyScreen: React.FC = () => {
           </div>
         )}
 
+
         {activeTab === 'refund' && (
           <div className="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm space-y-5 text-slate-700 text-xs leading-relaxed">
             <div className="flex items-center gap-2.5 pb-3 border-b border-slate-100">
@@ -376,6 +386,9 @@ const TermsPrivacyScreen: React.FC = () => {
                 Refund, Cancellation & Subscription Policy
               </h3>
             </div>
+            <p className="text-sm font-bold text-slate-900">
+              View official refund policy at: <a href="https://foodindia.sbs/refund" target="_blank" rel="noopener noreferrer" className="text-orange-600 underline font-black">foodindia.sbs/refund</a>
+            </p>
 
             {/* Customer Order Refund & Cancellation Policy */}
             <div className="space-y-3">

@@ -11,6 +11,7 @@ import {
   Loader2,
   Copy,
   Check,
+  Truck,
 } from 'lucide-react';
 import { collection, query, where, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase/config';
@@ -186,15 +187,27 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
 
           <div className="flex items-center gap-1.5">
             {pluginEnabled && (
-              <button
-                type="button"
-                onClick={() => navigate('/restaurant-map')}
-                className="px-3 py-1.5 bg-orange-500 hover:bg-orange-600 text-white rounded-full text-xs font-black uppercase tracking-wider flex items-center gap-1 shadow-md transition-all shrink-0"
-                title="Open Restaurant Map & Direct Ordering Window"
-              >
-                <MapPin size={13} />
-                <span className="hidden sm:inline">Restaurant Map</span>
-              </button>
+              <>
+                <button
+                  type="button"
+                  onClick={() => navigate('/delivery-partner-dashboard')}
+                  className="px-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full text-xs font-black uppercase tracking-wider flex items-center gap-1 shadow-md transition-all shrink-0"
+                  title="Delivery Boy Registration & Live Map Dashboard"
+                >
+                  <Truck size={13} />
+                  <span className="hidden sm:inline">Delivery Boy</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => navigate('/restaurant-map')}
+                  className="px-2.5 py-1.5 bg-orange-500 hover:bg-orange-600 text-white rounded-full text-xs font-black uppercase tracking-wider flex items-center gap-1 shadow-md transition-all shrink-0"
+                  title="Open Restaurant Map & Direct Ordering Window"
+                >
+                  <MapPin size={13} />
+                  <span className="hidden sm:inline">Restaurant Map</span>
+                </button>
+              </>
             )}
             <button
               onClick={() => setShowNotifModal(true)}

@@ -210,13 +210,15 @@ export const orderService = {
         updatedAt: serverTimestamp(),
       };
 
-      await setDoc(doc(db, 'orders', orderId), fullOrder);
-      // Permanent immutable backup in orderArchives so order data is never lost
-      await setDoc(doc(db, 'orderArchives', orderId), fullOrder, { merge: true }).catch(() => {});
+      const orderPromises = [
+        setDoc(doc(db, 'orders', orderId), fullOrder),
+        setDoc(doc(db, 'orderArchives', orderId), fullOrder, { merge: true }),
+      ];
+      await Promise.all(orderPromises);
 
-      // Permanently link order to Seller Profile (works for both live sellers and test_indian_darbar_seller)
+      // Permanently link order to Seller Profile
       if (finalSellerId) {
-        await setDoc(
+        setDoc(
           doc(db, 'sellers', finalSellerId),
           {
             uid: finalSellerId,
@@ -232,7 +234,7 @@ export const orderService = {
         ).catch(() => {});
       }
 
-      // Automatically dispatch order to the integrated Local Food Delivery Company API
+      // Automatically dispatch order to the integrated Local Food Delivery Company API (non-blocking)
       fetch('/api/delivery/book', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -244,53 +246,58 @@ export const orderService = {
         }),
       }).catch(() => {});
 
-      // Permanently link order history, phone & live GPS to Customer Profile (customers/{uid} & users/{uid})
-      try {
-        const liveGpsRecord = {
-          latitude: lat,
-          longitude: lng,
-          address: enrichedAddressSnapshot.formattedAddress,
-          googleMapsUrl: googleMapsLink,
-          updatedAt: nowIso,
-        };
+      // Permanently link order history, phone & live GPS to Customer Profile (non-blocking)
+      const updateCustomerProfile = async () => {
+        try {
+          const liveGpsRecord = {
+            latitude: lat,
+            longitude: lng,
+            address: enrichedAddressSnapshot.formattedAddress,
+            googleMapsUrl: googleMapsLink,
+            updatedAt: nowIso,
+          };
 
-        await setDoc(
-          doc(db, 'customers', orderData.customerId),
-          {
-            uid: orderData.customerId,
-            fullName: orderData.customerName,
-            phone: orderData.customerPhone,
-            ...(orderData.customerEmail ? { email: orderData.customerEmail } : {}),
-            liveGps: liveGpsRecord,
-            orderIds: arrayUnion(orderId),
-            totalOrders: increment(1),
-            lastOrderAt: serverTimestamp(),
-            updatedAt: serverTimestamp(),
-          },
-          { merge: true }
-        );
+          await Promise.all([
+            setDoc(
+              doc(db, 'customers', orderData.customerId),
+              {
+                uid: orderData.customerId,
+                fullName: orderData.customerName,
+                phone: orderData.customerPhone,
+                ...(orderData.customerEmail ? { email: orderData.customerEmail } : {}),
+                liveGps: liveGpsRecord,
+                orderIds: arrayUnion(orderId),
+                totalOrders: increment(1),
+                lastOrderAt: serverTimestamp(),
+                updatedAt: serverTimestamp(),
+              },
+              { merge: true }
+            ),
+            setDoc(
+              doc(db, 'users', orderData.customerId),
+              {
+                uid: orderData.customerId,
+                ...(orderData.customerPhone ? { phone: orderData.customerPhone } : {}),
+                liveGps: liveGpsRecord,
+                updatedAt: serverTimestamp(),
+              },
+              { merge: true }
+            ),
+          ]);
+        } catch (e) {
+          console.warn('Could not update customer profile order stats:', e);
+        }
+      };
+      updateCustomerProfile();
 
-        await setDoc(
-          doc(db, 'users', orderData.customerId),
-          {
-            uid: orderData.customerId,
-            ...(orderData.customerPhone ? { phone: orderData.customerPhone } : {}),
-            liveGps: liveGpsRecord,
-            updatedAt: serverTimestamp(),
-          },
-          { merge: true }
-        );
-      } catch (e) {
-        console.warn('Could not update customer profile order stats:', e);
-      }
-
-      // Dispatch In-App, SMS (+918825028335), Email, and WhatsApp Notifications to Seller & Customer
-      await notificationService.dispatchOrderNotifications({
+      // Dispatch In-App, SMS, Email, and WhatsApp Notifications to Seller & Customer
+      notificationService.dispatchOrderNotifications({
         order: fullOrder as Order,
         eventType: 'order_placed',
         sellerEmail,
         sellerPhone,
-      });
+      }).catch(console.error);
+
 
       reportGlobalButtonStatus({
         buttonName: `Place COD Order (#${orderNumber})`,

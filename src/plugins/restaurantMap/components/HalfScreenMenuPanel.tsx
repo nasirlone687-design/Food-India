@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { PluginRestaurant, PluginMenuItem, PluginCartItem, PluginOrder } from '../models/types';
+import {
+  PluginRestaurant,
+  PluginMenuItem,
+  PluginCartItem,
+  PluginOrder,
+  PluginDeliveryPartner,
+} from '../models/types';
 import { pluginRestaurantService } from '../services/pluginRestaurantService';
 import { pluginOrderService } from '../services/pluginOrderService';
+import {
+  calculateRoundTripDistanceKm,
+  calculatePartnerDeliveryCharge,
+} from '../services/pluginDeliveryPartnerService';
 import { useAuth } from '../../../context/AuthContext';
 import {
   X,
@@ -19,18 +29,21 @@ import {
   Phone,
   Truck,
   ExternalLink,
+  Navigation,
 } from 'lucide-react';
 
 interface HalfScreenMenuPanelProps {
   restaurant: PluginRestaurant;
   onClose: () => void;
   userLocation: { lat: number; lng: number } | null;
+  availablePartners?: PluginDeliveryPartner[];
 }
 
 export const HalfScreenMenuPanel: React.FC<HalfScreenMenuPanelProps> = ({
   restaurant,
   onClose,
   userLocation,
+  availablePartners = [],
 }) => {
   const { user, profile } = useAuth();
   const [menuItems, setMenuItems] = useState<PluginMenuItem[]>([]);
@@ -38,6 +51,14 @@ export const HalfScreenMenuPanel: React.FC<HalfScreenMenuPanelProps> = ({
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [cart, setCart] = useState<PluginCartItem[]>([]);
   const [showCheckoutModal, setShowCheckoutModal] = useState<boolean>(false);
+
+  // Delivery options: Restaurant delivery vs Vehicle partner delivery
+  const [deliveryType, setDeliveryType] = useState<'restaurant_delivery' | 'map_partner_delivery'>(
+    'restaurant_delivery'
+  );
+  const [selectedPartnerId, setSelectedPartnerId] = useState<string>(
+    availablePartners[0]?.partnerId || ''
+  );
 
   // Checkout form state
   const [customerName, setCustomerName] = useState(profile?.fullName || user?.displayName || '');
@@ -67,6 +88,34 @@ export const HalfScreenMenuPanel: React.FC<HalfScreenMenuPanelProps> = ({
       setDeliveryAddress(profile.liveGps.address);
     }
   }, [profile]);
+
+  const selectedPartner =
+    availablePartners.find((p) => p.partnerId === selectedPartnerId) || availablePartners[0];
+
+  // Calculate live 3-leg round-trip distance for selected partner
+  const partnerRoundTripKm = selectedPartner
+    ? calculateRoundTripDistanceKm(
+        selectedPartner.latitude,
+        selectedPartner.longitude,
+        restaurant.latitude || 33.7297,
+        restaurant.longitude || 75.1498,
+        userLocation?.lat || 33.7297,
+        userLocation?.lng || 75.1498
+      )
+    : 10;
+
+  const partnerDeliveryFee = selectedPartner
+    ? calculatePartnerDeliveryCharge(
+        partnerRoundTripKm,
+        selectedPartner.baseDeliveryPrice,
+        selectedPartner.pricePerKm
+      )
+    : 100;
+
+  const deliveryFee =
+    deliveryType === 'map_partner_delivery' && selectedPartner
+      ? partnerDeliveryFee
+      : restaurant.baseDeliveryFee ?? 25;
 
   const categories = Array.from(new Set(menuItems.map((m) => m.category || 'General')));
 
@@ -109,7 +158,6 @@ export const HalfScreenMenuPanel: React.FC<HalfScreenMenuPanelProps> = ({
   };
 
   const cartSubtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const deliveryFee = restaurant.baseDeliveryFee ?? 25;
   const grandTotal = Math.round((cartSubtotal + deliveryFee) * 100) / 100;
 
   const handlePlaceOrder = async (e: React.FormEvent) => {
@@ -142,6 +190,11 @@ export const HalfScreenMenuPanel: React.FC<HalfScreenMenuPanelProps> = ({
         sellerId: restaurant.sellerId,
         items: cart,
         deliveryFee,
+        deliveryType,
+        deliveryPartnerId: deliveryType === 'map_partner_delivery' ? selectedPartner?.partnerId : undefined,
+        deliveryPartnerName: deliveryType === 'map_partner_delivery' ? selectedPartner?.name : undefined,
+        deliveryPartnerPhone: deliveryType === 'map_partner_delivery' ? selectedPartner?.phone : undefined,
+        roundTripDistanceKm: deliveryType === 'map_partner_delivery' ? partnerRoundTripKm : undefined,
       });
 
       setActiveOrder(order);
@@ -386,6 +439,74 @@ export const HalfScreenMenuPanel: React.FC<HalfScreenMenuPanelProps> = ({
                 <span>{orderError}</span>
               </div>
             )}
+
+            {/* Delivery Dispatch Option Selector */}
+            <div className="bg-slate-50 p-3.5 rounded-2xl space-y-2 border border-slate-200 text-xs">
+              <p className="font-black uppercase text-[10px] text-slate-500 tracking-wider">
+                Select Delivery Method
+              </p>
+
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => setDeliveryType('restaurant_delivery')}
+                  className={`p-2.5 rounded-xl border text-left flex flex-col justify-between transition-colors ${
+                    deliveryType === 'restaurant_delivery'
+                      ? 'bg-orange-500 text-white border-orange-600 shadow-sm'
+                      : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
+                  }`}
+                >
+                  <span className="font-black text-xs">Kitchen Delivery</span>
+                  <span className="text-[10px] font-bold mt-1 opacity-90">
+                    Standard Rate: ₹{restaurant.baseDeliveryFee || 25}
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setDeliveryType('map_partner_delivery')}
+                  className={`p-2.5 rounded-xl border text-left flex flex-col justify-between transition-colors ${
+                    deliveryType === 'map_partner_delivery'
+                      ? 'bg-emerald-600 text-white border-emerald-700 shadow-sm'
+                      : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
+                  }`}
+                >
+                  <span className="font-black text-xs">Live Vehicle Partner</span>
+                  <span className="text-[10px] font-bold mt-1 opacity-90">
+                    Round-Trip ({partnerRoundTripKm} km): ₹{partnerDeliveryFee}
+                  </span>
+                </button>
+              </div>
+
+              {/* If Map Partner Delivery is active, select driver */}
+              {deliveryType === 'map_partner_delivery' && (
+                <div className="pt-2 border-t border-slate-200/80 space-y-1.5">
+                  <label className="font-bold text-slate-700">Choose Available Vehicle Driver:</label>
+                  <select
+                    value={selectedPartnerId}
+                    onChange={(e) => setSelectedPartnerId(e.target.value)}
+                    className="w-full h-10 px-3 bg-white border border-slate-200 rounded-xl font-bold text-slate-900 outline-none"
+                  >
+                    {availablePartners.map((p) => {
+                      const rtKm = calculateRoundTripDistanceKm(
+                        p.latitude,
+                        p.longitude,
+                        restaurant.latitude || 33.7297,
+                        restaurant.longitude || 75.1498,
+                        userLocation?.lat || 33.7297,
+                        userLocation?.lng || 75.1498
+                      );
+                      const fee = calculatePartnerDeliveryCharge(rtKm, p.baseDeliveryPrice, p.pricePerKm);
+                      return (
+                        <option key={p.partnerId} value={p.partnerId}>
+                          {p.name} ({p.vehicleType.toUpperCase()}) — {rtKm}km round trip @ ₹{fee}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+              )}
+            </div>
 
             {/* Cart Items Summary */}
             <div className="bg-slate-50 p-3.5 rounded-2xl space-y-2 text-xs border border-slate-100">

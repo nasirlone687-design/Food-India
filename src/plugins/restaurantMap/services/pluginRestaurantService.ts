@@ -217,6 +217,17 @@ export const pluginRestaurantService = {
     }
   },
 
+  // Helper to sanitize payload for Firestore
+  sanitizePayload(obj: Record<string, any>): Record<string, any> {
+    const clean: Record<string, any> = {};
+    Object.keys(obj).forEach((key) => {
+      if (obj[key] !== undefined) {
+        clean[key] = obj[key];
+      }
+    });
+    return clean;
+  },
+
   // Register a new restaurant in the plugin
   async registerRestaurant(data: Omit<PluginRestaurant, 'restaurantId' | 'slug' | 'approvalStatus' | 'isApproved'>): Promise<string> {
     const restaurantId = uuidv4();
@@ -238,38 +249,48 @@ export const pluginRestaurantService = {
       isOpen: data.isOpen ?? true,
       rating: 4.8,
       totalReviews: 1,
-      createdAt: serverTimestamp(),
-      updatedAt: serverTimestamp(),
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
     };
 
-    await setDoc(doc(RESTAURANTS_COL, restaurantId), newRestaurant);
+    const clean = this.sanitizePayload(newRestaurant);
+    await setDoc(doc(RESTAURANTS_COL, restaurantId), clean, { merge: true });
     return restaurantId;
   },
 
   // Update restaurant profile details
   async updateRestaurant(restaurantId: string, partial: Partial<PluginRestaurant>): Promise<void> {
-    await updateDoc(doc(RESTAURANTS_COL, restaurantId), {
+    const clean = this.sanitizePayload({
       ...partial,
-      updatedAt: serverTimestamp(),
+      updatedAt: new Date().toISOString(),
     });
+    await setDoc(doc(RESTAURANTS_COL, restaurantId), clean, { merge: true });
   },
 
   // Admin Approve Restaurant
   async approveRestaurant(restaurantId: string): Promise<void> {
-    await updateDoc(doc(RESTAURANTS_COL, restaurantId), {
-      approvalStatus: 'approved',
-      isApproved: true,
-      updatedAt: serverTimestamp(),
-    });
+    await setDoc(
+      doc(RESTAURANTS_COL, restaurantId),
+      {
+        approvalStatus: 'approved',
+        isApproved: true,
+        updatedAt: new Date().toISOString(),
+      },
+      { merge: true }
+    );
   },
 
   // Admin Reject Restaurant
   async rejectRestaurant(restaurantId: string): Promise<void> {
-    await updateDoc(doc(RESTAURANTS_COL, restaurantId), {
-      approvalStatus: 'rejected',
-      isApproved: false,
-      updatedAt: serverTimestamp(),
-    });
+    await setDoc(
+      doc(RESTAURANTS_COL, restaurantId),
+      {
+        approvalStatus: 'rejected',
+        isApproved: false,
+        updatedAt: new Date().toISOString(),
+      },
+      { merge: true }
+    );
   },
 
   // Subscribe to menu items for a specific restaurant (combines plugin_map_menus and products collections)
@@ -413,19 +434,21 @@ export const pluginRestaurantService = {
     const newItem: PluginMenuItem = {
       ...item,
       itemId,
-      createdAt: serverTimestamp(),
-      updatedAt: serverTimestamp(),
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
     };
-    await setDoc(doc(MENUS_COL, itemId), newItem);
+    const clean = this.sanitizePayload(newItem);
+    await setDoc(doc(MENUS_COL, itemId), clean, { merge: true });
     return itemId;
   },
 
   // Update menu item
   async updateMenuItem(itemId: string, partial: Partial<PluginMenuItem>): Promise<void> {
-    await updateDoc(doc(MENUS_COL, itemId), {
+    const clean = this.sanitizePayload({
       ...partial,
-      updatedAt: serverTimestamp(),
+      updatedAt: new Date().toISOString(),
     });
+    await setDoc(doc(MENUS_COL, itemId), clean, { merge: true });
   },
 
   // Delete menu item

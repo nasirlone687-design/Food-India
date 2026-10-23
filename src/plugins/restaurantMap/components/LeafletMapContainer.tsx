@@ -1,13 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { PluginRestaurant } from '../models/types';
-import { MapPin, Navigation, Search, Utensils, Star, Store } from 'lucide-react';
+import { PluginRestaurant, PluginDeliveryPartner } from '../models/types';
+import { Navigation } from 'lucide-react';
 
 interface LeafletMapContainerProps {
   restaurants: PluginRestaurant[];
   selectedRestaurant: PluginRestaurant | null;
   onSelectRestaurant: (restaurant: PluginRestaurant) => void;
+  deliveryPartners?: PluginDeliveryPartner[];
+  selectedPartner?: PluginDeliveryPartner | null;
+  onSelectPartner?: (partner: PluginDeliveryPartner) => void;
   userLocation: { lat: number; lng: number } | null;
   onRequestLocation: () => void;
   isLocating?: boolean;
@@ -17,13 +20,17 @@ export const LeafletMapContainer: React.FC<LeafletMapContainerProps> = ({
   restaurants,
   selectedRestaurant,
   onSelectRestaurant,
+  deliveryPartners = [],
+  selectedPartner,
+  onSelectPartner,
   userLocation,
   onRequestLocation,
   isLocating = false,
 }) => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
-  const markersRef = useRef<Map<string, L.Marker>>(new Map());
+  const restaurantMarkersRef = useRef<Map<string, L.Marker>>(new Map());
+  const partnerMarkersRef = useRef<Map<string, L.Marker>>(new Map());
   const userMarkerRef = useRef<L.Marker | null>(null);
 
   // Initialize Leaflet Map instance
@@ -99,9 +106,8 @@ export const LeafletMapContainer: React.FC<LeafletMapContainerProps> = ({
     const map = mapInstanceRef.current;
     if (!map) return;
 
-    // Remove existing markers
-    markersRef.current.forEach((m) => m.remove());
-    markersRef.current.clear();
+    restaurantMarkersRef.current.forEach((m) => m.remove());
+    restaurantMarkersRef.current.clear();
 
     restaurants.forEach((res) => {
       if (typeof res.latitude !== 'number' || typeof res.longitude !== 'number') return;
@@ -148,9 +154,67 @@ export const LeafletMapContainer: React.FC<LeafletMapContainerProps> = ({
         map.panTo([res.latitude, res.longitude]);
       });
 
-      markersRef.current.set(res.restaurantId, marker);
+      restaurantMarkersRef.current.set(res.restaurantId, marker);
     });
   }, [restaurants, selectedRestaurant, onSelectRestaurant]);
+
+  // Sync delivery partner vehicle markers
+  useEffect(() => {
+    const map = mapInstanceRef.current;
+    if (!map) return;
+
+    partnerMarkersRef.current.forEach((m) => m.remove());
+    partnerMarkersRef.current.clear();
+
+    deliveryPartners.forEach((partner) => {
+      if (typeof partner.latitude !== 'number' || typeof partner.longitude !== 'number') return;
+
+      const isSelected = selectedPartner?.partnerId === partner.partnerId;
+      const vehicleEmoji =
+        partner.vehicleType === 'bike'
+          ? '🏍️'
+          : partner.vehicleType === 'auto'
+          ? '🛺'
+          : partner.vehicleType === 'van'
+          ? '🚚'
+          : '🛵';
+
+      const partnerIcon = L.divIcon({
+        className: 'custom-partner-pin',
+        html: `
+          <div class="cursor-pointer group flex flex-col items-center transition-transform ${
+            isSelected ? 'scale-125 z-50' : 'hover:scale-110'
+          }">
+            <div class="px-2 py-0.5 bg-emerald-900 text-emerald-100 rounded-md text-[10px] font-black shadow-md whitespace-nowrap flex items-center gap-1 mb-0.5 border border-emerald-500">
+              <span>${vehicleEmoji} ${partner.name.split(' ')[0]}</span>
+              <span class="text-amber-300 font-bold">₹${partner.pricePerKm}/km</span>
+            </div>
+            <div class="w-9 h-9 rounded-full bg-emerald-600 border-2 border-white shadow-2xl flex items-center justify-center text-white text-base relative">
+              <span>${vehicleEmoji}</span>
+              <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-white"></span>
+            </div>
+            <div class="w-2 h-2 bg-emerald-700 rotate-45 -mt-1"></div>
+          </div>
+        `,
+        iconSize: [120, 50],
+        iconAnchor: [60, 48],
+      });
+
+      const marker = L.marker([partner.latitude, partner.longitude], {
+        icon: partnerIcon,
+        zIndexOffset: 900,
+      }).addTo(map);
+
+      marker.on('click', () => {
+        if (onSelectPartner) {
+          onSelectPartner(partner);
+        }
+        map.panTo([partner.latitude, partner.longitude]);
+      });
+
+      partnerMarkersRef.current.set(partner.partnerId, marker);
+    });
+  }, [deliveryPartners, selectedPartner, onSelectPartner]);
 
   // Pan to selected restaurant
   useEffect(() => {
@@ -172,7 +236,11 @@ export const LeafletMapContainer: React.FC<LeafletMapContainerProps> = ({
           className="group px-4 py-3 bg-white hover:bg-orange-50 text-orange-600 rounded-2xl shadow-2xl border border-slate-200 active:scale-95 transition-all flex items-center gap-2 font-black text-xs disabled:opacity-50"
           title="Detect and Pick My Live Location"
         >
-          <Navigation className={`w-5 h-5 fill-orange-500 text-orange-600 ${isLocating ? 'animate-spin' : 'group-hover:rotate-12 transition-transform'}`} />
+          <Navigation
+            className={`w-5 h-5 fill-orange-500 text-orange-600 ${
+              isLocating ? 'animate-spin' : 'group-hover:rotate-12 transition-transform'
+            }`}
+          />
           <span className="hidden sm:inline uppercase tracking-wider">Locate Me</span>
         </button>
       </div>
@@ -180,8 +248,9 @@ export const LeafletMapContainer: React.FC<LeafletMapContainerProps> = ({
       {/* Attribution overlay badge */}
       <div className="absolute bottom-2 left-2 z-10 px-2.5 py-1 bg-white/90 backdrop-blur-sm rounded-lg text-[9px] font-bold text-slate-600 border border-slate-200 shadow-sm flex items-center gap-1.5 pointer-events-none">
         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>Leaflet OpenStreetMap • Free Restaurant Map</span>
+        <span>Leaflet OpenStreetMap • Registered Kitchens & Live Vehicle Partners</span>
       </div>
     </div>
   );
 };
+

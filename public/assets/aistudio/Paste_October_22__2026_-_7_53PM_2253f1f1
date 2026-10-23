@@ -1,0 +1,726 @@
+[07:43:38 PM] [ERROR] [ADMIN /admin] FirebaseError: Missing or insufficient permissions.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Ensure you are signed in with your Seller/Admin account. Firestore security rules require matching sellerId/uid.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14288:136
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14261:7
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:2549:4
+Rb@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1437:126
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1306:45
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1237:34
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+Wc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1977:14
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1972:5
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1969:61
+Lc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1866:52
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1833:26
+
+----------------------------------------
+
+[04:38:06 PM] [ERROR] [CUSTOMER /customer] BUTTON: "Save Live GPS & Phone to Firestore" — Location permission was blocked in your browser. Please allow Location Access in your browser address bar settings to capture your live GPS coordinates.
+Backend Linked: Firestore: deviceLocations & users/vvjTt9sPfIhWKYP95hbaGslhI8x2
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Browser blocked live GPS in iframe. Enter your 6-digit Indian PIN code (e.g., 110001, 400001, 560001) and click "Auto-Fill from PIN", or drag the map pin / type State, City, District manually.
+Details:
+requestLiveGpsLocation@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/utils/gps.ts:414:19
+
+----------------------------------------
+
+[04:37:53 PM] [ERROR] [CUSTOMER /customer] BUTTON: "Save Live GPS & Phone to Firestore" — Location permission was blocked in your browser. Please allow Location Access in your browser address bar settings to capture your live GPS coordinates.
+Backend Linked: Firestore: deviceLocations & users/vvjTt9sPfIhWKYP95hbaGslhI8x2
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Browser blocked live GPS in iframe. Enter your 6-digit Indian PIN code (e.g., 110001, 400001, 560001) and click "Auto-Fill from PIN", or drag the map pin / type State, City, District manually.
+Details:
+requestLiveGpsLocation@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/utils/gps.ts:414:19
+
+----------------------------------------
+
+[04:37:44 PM] [ERROR] [CUSTOMER /customer] BUTTON: "Save Live GPS & Phone to Firestore" — Location permission was blocked in your browser. Please allow Location Access in your browser address bar settings to capture your live GPS coordinates.
+Backend Linked: Firestore: deviceLocations & users/vvjTt9sPfIhWKYP95hbaGslhI8x2
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Browser blocked live GPS in iframe. Enter your 6-digit Indian PIN code (e.g., 110001, 400001, 560001) and click "Auto-Fill from PIN", or drag the map pin / type State, City, District manually.
+Details:
+requestLiveGpsLocation@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/utils/gps.ts:414:19
+
+----------------------------------------
+
+[04:37:35 PM] [ERROR] [CUSTOMER /customer] BUTTON: "Save Live GPS & Phone to Firestore" — Location permission was blocked in your browser. Please allow Location Access in your browser address bar settings to capture your live GPS coordinates.
+Backend Linked: Firestore: deviceLocations & users/vvjTt9sPfIhWKYP95hbaGslhI8x2
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Browser blocked live GPS in iframe. Enter your 6-digit Indian PIN code (e.g., 110001, 400001, 560001) and click "Auto-Fill from PIN", or drag the map pin / type State, City, District manually.
+Details:
+requestLiveGpsLocation@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/utils/gps.ts:414:19
+
+----------------------------------------
+
+[04:37:33 PM] [ERROR] [CUSTOMER /customer] BUTTON: "Save Live GPS & Phone to Firestore" — Location permission was blocked in your browser. Please allow Location Access in your browser address bar settings to capture your live GPS coordinates.
+Backend Linked: Firestore: deviceLocations & users/vvjTt9sPfIhWKYP95hbaGslhI8x2
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Browser blocked live GPS in iframe. Enter your 6-digit Indian PIN code (e.g., 110001, 400001, 560001) and click "Auto-Fill from PIN", or drag the map pin / type State, City, District manually.
+Details:
+requestLiveGpsLocation@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/utils/gps.ts:414:19
+
+----------------------------------------
+
+[04:21:51 PM] [ERROR] [SELLER /seller] Error: Could not find coordinates for that PIN code or city. Please allow browser GPS location or enter a valid 6-digit Indian PIN code.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Browser blocked live GPS in iframe. Enter your 6-digit Indian PIN code (e.g., 110001, 400001, 560001) and click "Auto-Fill from PIN", or drag the map pin / type State, City, District manually.
+Details:
+lookupLocationByPinOrCity@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/utils/gps.ts:382:17
+
+----------------------------------------
+
+[04:06:27 PM] [ERROR] [SELLER /seller] Error: Could not find coordinates for that PIN code or city. Please allow browser GPS location or enter a valid 6-digit Indian PIN code.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Browser blocked live GPS in iframe. Enter your 6-digit Indian PIN code (e.g., 110001, 400001, 560001) and click "Auto-Fill from PIN", or drag the map pin / type State, City, District manually.
+Details:
+lookupLocationByPinOrCity@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/utils/gps.ts:382:17
+
+----------------------------------------
+
+[04:05:31 PM] [ERROR] [CUSTOMER /welcome] FirebaseError: Missing or insufficient permissions.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Ensure you are signed in with your Seller/Admin account. Firestore security rules require matching sellerId/uid.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14288:136
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14261:7
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:2549:4
+Rb@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1437:126
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1306:45
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1237:34
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+Wc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1977:14
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1972:5
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1969:61
+Lc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1866:52
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1833:26
+
+----------------------------------------
+
+[04:05:29 PM] [ERROR] [CUSTOMER /] FirebaseError: Missing or insufficient permissions.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Ensure you are signed in with your Seller/Admin account. Firestore security rules require matching sellerId/uid.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14288:136
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14261:7
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:2549:4
+Rb@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1437:126
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1306:45
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1237:34
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+Wc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1977:14
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1972:5
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1969:61
+Lc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1866:52
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1833:26
+
+----------------------------------------
+
+[04:01:52 PM] [ERROR] [CUSTOMER /] FirebaseError: Missing or insufficient permissions.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Ensure you are signed in with your Seller/Admin account. Firestore security rules require matching sellerId/uid.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14288:136
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14261:7
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:2549:4
+Rb@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1437:126
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1306:45
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1237:34
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+Wc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1977:14
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1972:5
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1969:61
+Lc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1866:52
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1833:26
+
+----------------------------------------
+
+[04:01:51 PM] [ERROR] [CUSTOMER /] FirebaseError: Missing or insufficient permissions.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Ensure you are signed in with your Seller/Admin account. Firestore security rules require matching sellerId/uid.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14288:136
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14261:7
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:2549:4
+Rb@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1437:126
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1306:45
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1237:34
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+Wc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1977:14
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1972:5
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1969:61
+Lc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1866:52
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1833:26
+
+----------------------------------------
+
+[03:46:33 PM] [ERROR] [ADMIN /admin-auth] Unauthorized access. Only the authorized system administrator can enter.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Verify all required form fields and try again.
+
+----------------------------------------
+
+[03:46:33 PM] [ERROR] [ADMIN /admin-auth] Google Auth Error: Error: Unauthorized access. Only the authorized system administrator can enter.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Verify all required form fields and try again.
+Details:
+signInWithGoogle@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/services/auth.ts:137:21
+
+----------------------------------------
+
+[03:46:14 PM] [ERROR] [ADMIN /admin-auth] Unauthorized access. Only the authorized system administrator can enter.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Verify all required form fields and try again.
+
+----------------------------------------
+
+[03:46:14 PM] [ERROR] [ADMIN /admin-auth] Google Auth Error: Error: Unauthorized access. Only the authorized system administrator can enter.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Verify all required form fields and try again.
+Details:
+signInWithGoogle@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/services/auth.ts:137:21
+
+----------------------------------------
+
+[03:46:03 PM] [ERROR] [ADMIN /admin-auth] Google Auth Error: Error: Unauthorized access. Only the authorized system administrator can enter.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Verify all required form fields and try again.
+Details:
+signInWithGoogle@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/services/auth.ts:137:21
+
+----------------------------------------
+
+[03:45:39 PM] [ERROR] [CUSTOMER /welcome] FirebaseError: Missing or insufficient permissions.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Ensure you are signed in with your Seller/Admin account. Firestore security rules require matching sellerId/uid.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14288:136
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14261:7
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:2549:4
+Rb@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1437:126
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1306:45
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1237:34
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+Wc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1977:14
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1972:5
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1969:61
+Lc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1866:52
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1833:26
+
+----------------------------------------
+
+[03:45:37 PM] [ERROR] [CUSTOMER /] FirebaseError: Missing or insufficient permissions.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Ensure you are signed in with your Seller/Admin account. Firestore security rules require matching sellerId/uid.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14288:136
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14261:7
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:2549:4
+Rb@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1437:126
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1306:45
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1237:34
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+Wc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1977:14
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1972:5
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1969:61
+Lc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1866:52
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1833:26
+
+----------------------------------------
+
+[03:43:17 PM] [ERROR] [CUSTOMER /welcome] FirebaseError: Missing or insufficient permissions.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Ensure you are signed in with your Seller/Admin account. Firestore security rules require matching sellerId/uid.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14288:136
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14261:7
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:2549:4
+Rb@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1437:126
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1306:45
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1237:34
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+Wc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1977:14
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1972:5
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1969:61
+Lc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1866:52
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1833:26
+
+----------------------------------------
+
+[03:43:16 PM] [ERROR] [CUSTOMER /] FirebaseError: Missing or insufficient permissions.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Ensure you are signed in with your Seller/Admin account. Firestore security rules require matching sellerId/uid.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14288:136
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14261:7
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:2549:4
+Rb@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1437:126
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1306:45
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1237:34
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+Wc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1977:14
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1972:5
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1969:61
+Lc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1866:52
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1833:26
+
+----------------------------------------
+
+[03:42:14 PM] [ERROR] [CUSTOMER /welcome] FirebaseError: Missing or insufficient permissions.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Ensure you are signed in with your Seller/Admin account. Firestore security rules require matching sellerId/uid.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14288:136
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14261:7
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:2549:4
+Rb@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1437:126
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1306:45
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1237:34
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+Wc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1977:14
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1972:5
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1969:61
+Lc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1866:52
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1833:26
+
+----------------------------------------
+
+[03:42:12 PM] [ERROR] [CUSTOMER /] FirebaseError: Missing or insufficient permissions.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Ensure you are signed in with your Seller/Admin account. Firestore security rules require matching sellerId/uid.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14288:136
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14261:7
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:2549:4
+Rb@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1437:126
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1306:45
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1237:34
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+Wc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1977:14
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1972:5
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1969:61
+Lc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1866:52
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1833:26
+
+----------------------------------------
+
+[03:40:48 PM] [ERROR] [ADMIN /admin-auth] Google Auth Error: Error: Unauthorized access. Only the authorized system administrator can enter.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Verify all required form fields and try again.
+Details:
+signInWithGoogle@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/services/auth.ts:137:21
+
+----------------------------------------
+
+[03:39:39 PM] [ERROR] [CUSTOMER /welcome] FirebaseError: Missing or insufficient permissions.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Ensure you are signed in with your Seller/Admin account. Firestore security rules require matching sellerId/uid.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14288:136
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14261:7
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:2549:4
+Rb@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1437:126
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1306:45
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1237:34
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+Wc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1977:14
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1972:5
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1969:61
+Lc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1866:52
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1833:26
+
+----------------------------------------
+
+[03:39:38 PM] [ERROR] [CUSTOMER /welcome] FirebaseError: Missing or insufficient permissions.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Ensure you are signed in with your Seller/Admin account. Firestore security rules require matching sellerId/uid.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14288:136
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14261:7
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:2549:4
+Rb@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1437:126
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1306:45
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1237:34
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+Wc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1977:14
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1972:5
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1969:61
+Lc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1866:52
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1833:26
+
+----------------------------------------
+
+[02:39:47 PM] [ERROR] [CUSTOMER /cart] TypeError: undefined is not an object (evaluating 'items.length')
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Verify all required form fields and try again.
+Details:
+CartScreen@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/Cart.tsx:283:11
+react_stack_bottom_frame@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:14139:21
+renderWithHooks@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:4397:37
+updateFunctionComponent@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:5772:31
+runWithFiberInDEV@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:941:131
+performUnitOfWork@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9145:109
+workLoopSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9041:54
+renderRootSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9025:18
+performWorkOnRoot@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:8712:41
+performWorkOnRootViaSchedulerTask@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9831:21
+performWorkUntilDeadline@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:35:46
+
+CartScreen@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/Cart.tsx:19:30
+ProtectedRoute@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/navigation/AppRoutes.tsx:33:44
+RenderedRoute@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-router-dom.js:4204:38
+Routes@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps
+
+----------------------------------------
+
+[02:39:47 PM] [ERROR] [CUSTOMER /cart] %o
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Verify all required form fields and try again.
+Details:
+
+%s
+
+%s
+ TypeError: undefined is not an object (evaluating 'items.length')
+CartScreen@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/Cart.tsx:283:11
+react_stack_bottom_frame@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:14139:21
+renderWithHooks@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:4397:37
+updateFunctionComponent@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:5772:31
+runWithFiberInDEV@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:941:131
+performUnitOfWork@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9145:109
+workLoopSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9041:54
+renderRootSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9025:18
+performWorkOnRoot@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:8712:41
+performWorkOnRootViaSchedulerTask@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9831:21
+performWorkUntilDeadline@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:35:46 The above error occurred in the <CartScreen> component. React will try to recreate this component tree from scratch using the error boundary you provided, AppErrorBoundary.
+
+----------------------------------------
+
+[02:39:02 PM] [ERROR] [CUSTOMER /cart] TypeError: undefined is not an object (evaluating 'items.length')
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Verify all required form fields and try again.
+Details:
+CartScreen@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/Cart.tsx:283:11
+react_stack_bottom_frame@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:14139:21
+renderWithHooks@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:4397:37
+updateFunctionComponent@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:5772:31
+runWithFiberInDEV@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:941:131
+performUnitOfWork@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9145:109
+workLoopSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9041:54
+renderRootSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9025:18
+performWorkOnRoot@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:8712:41
+performWorkOnRootViaSchedulerTask@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9831:21
+performWorkUntilDeadline@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:35:46
+
+CartScreen@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/Cart.tsx:19:30
+ProtectedRoute@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/navigation/AppRoutes.tsx:33:44
+RenderedRoute@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-router-dom.js:4204:38
+Routes@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps
+
+----------------------------------------
+
+[02:39:02 PM] [ERROR] [CUSTOMER /cart] %o
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Verify all required form fields and try again.
+Details:
+
+%s
+
+%s
+ TypeError: undefined is not an object (evaluating 'items.length')
+CartScreen@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/Cart.tsx:283:11
+react_stack_bottom_frame@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:14139:21
+renderWithHooks@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:4397:37
+updateFunctionComponent@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:5772:31
+runWithFiberInDEV@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:941:131
+performUnitOfWork@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9145:109
+workLoopSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9041:54
+renderRootSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9025:18
+performWorkOnRoot@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:8712:41
+performWorkOnRootViaSchedulerTask@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9831:21
+performWorkUntilDeadline@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:35:46 The above error occurred in the <CartScreen> component. React will try to recreate this component tree from scratch using the error boundary you provided, AppErrorBoundary.
+
+----------------------------------------
+
+[02:34:48 PM] [ERROR] [ADMIN /admin] TypeError: notificationService.buildOrderWhatsAppUrl is not a function. (In 'notificationService.buildOrderWhatsAppUrl(o, "customer")', 'notificationService.buildOrderWhatsAppUrl' is undefined)
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Verify all required form fields and try again.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/AdminDashboard.tsx:5162:66
+map@[native code]
+AdminDashboard@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/AdminDashboard.tsx:5158:30
+react_stack_bottom_frame@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:14139:21
+renderWithHooks@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:4397:37
+updateFunctionComponent@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:5772:31
+runWithFiberInDEV@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:941:131
+performUnitOfWork@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9145:109
+workLoopSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9041:54
+renderRootSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9025:18
+performWorkOnRoot@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:8712:41
+performSyncWorkOnRoot@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9839:21
+flushSyncWorkAcrossRoots_impl@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9756:323
+processRootScheduleInMicrotask@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9777:130
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9850:180
+
+AdminDashboard@https://ais-dev-2bw3zvoqngwrx5vm
+
+----------------------------------------
+
+[02:34:48 PM] [ERROR] [ADMIN /admin] %o
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Verify all required form fields and try again.
+Details:
+
+%s
+
+%s
+ TypeError: notificationService.buildOrderWhatsAppUrl is not a function. (In 'notificationService.buildOrderWhatsAppUrl(o, "customer")', 'notificationService.buildOrderWhatsAppUrl' is undefined)
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/AdminDashboard.tsx:5162:66
+map@[native code]
+AdminDashboard@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/AdminDashboard.tsx:5158:30
+react_stack_bottom_frame@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:14139:21
+renderWithHooks@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:4397:37
+updateFunctionComponent@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:5772:31
+runWithFiberInDEV@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:941:131
+performUnitOfWork@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9145:109
+workLoopSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9041:54
+renderRootSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9025:18
+performWorkOnRoot@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:8712:41
+performSyncWorkOnRoot@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9839:21
+flushSyncWorkAcrossRoots_impl@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9756:323
+processRootScheduleInMicrotask@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/dep
+
+----------------------------------------
+
+[02:28:52 PM] [ERROR] [ADMIN /admin] TypeError: notificationService.buildOrderWhatsAppUrl is not a function. (In 'notificationService.buildOrderWhatsAppUrl(o, "customer")', 'notificationService.buildOrderWhatsAppUrl' is undefined)
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Verify all required form fields and try again.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/AdminDashboard.tsx:5162:66
+map@[native code]
+AdminDashboard@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/AdminDashboard.tsx:5158:30
+react_stack_bottom_frame@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:14139:21
+renderWithHooks@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:4397:37
+updateFunctionComponent@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:5772:31
+runWithFiberInDEV@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:941:131
+performUnitOfWork@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9145:109
+workLoopSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9041:54
+renderRootSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9025:18
+performWorkOnRoot@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:8712:41
+performSyncWorkOnRoot@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9839:21
+flushSyncWorkAcrossRoots_impl@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9756:323
+processRootScheduleInMicrotask@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9777:130
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9850:180
+
+AdminDashboard@https://ais-dev-2bw3zvoqngwrx5vm
+
+----------------------------------------
+
+[02:28:52 PM] [ERROR] [ADMIN /admin] %o
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Verify all required form fields and try again.
+Details:
+
+%s
+
+%s
+ TypeError: notificationService.buildOrderWhatsAppUrl is not a function. (In 'notificationService.buildOrderWhatsAppUrl(o, "customer")', 'notificationService.buildOrderWhatsAppUrl' is undefined)
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/AdminDashboard.tsx:5162:66
+map@[native code]
+AdminDashboard@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/AdminDashboard.tsx:5158:30
+react_stack_bottom_frame@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:14139:21
+renderWithHooks@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:4397:37
+updateFunctionComponent@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:5772:31
+runWithFiberInDEV@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:941:131
+performUnitOfWork@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9145:109
+workLoopSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9041:54
+renderRootSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9025:18
+performWorkOnRoot@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:8712:41
+performSyncWorkOnRoot@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9839:21
+flushSyncWorkAcrossRoots_impl@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9756:323
+processRootScheduleInMicrotask@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/dep
+
+----------------------------------------
+
+[02:27:05 PM] [ERROR] [ADMIN /admin] TypeError: notificationService.buildOrderWhatsAppUrl is not a function. (In 'notificationService.buildOrderWhatsAppUrl(o, "customer")', 'notificationService.buildOrderWhatsAppUrl' is undefined)
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Verify all required form fields and try again.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/AdminDashboard.tsx:5162:66
+map@[native code]
+AdminDashboard@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/AdminDashboard.tsx:5158:30
+react_stack_bottom_frame@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:14139:21
+renderWithHooks@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:4397:37
+updateFunctionComponent@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:5772:31
+runWithFiberInDEV@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:941:131
+performUnitOfWork@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9145:109
+workLoopSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9041:54
+renderRootSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9025:18
+performWorkOnRoot@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:8712:41
+performSyncWorkOnRoot@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9839:21
+flushSyncWorkAcrossRoots_impl@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9756:323
+processRootScheduleInMicrotask@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9777:130
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9850:180
+
+AdminDashboard@https://ais-dev-2bw3zvoqngwrx5vm
+
+----------------------------------------
+
+[02:27:05 PM] [ERROR] [ADMIN /admin] %o
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Verify all required form fields and try again.
+Details:
+
+%s
+
+%s
+ TypeError: notificationService.buildOrderWhatsAppUrl is not a function. (In 'notificationService.buildOrderWhatsAppUrl(o, "customer")', 'notificationService.buildOrderWhatsAppUrl' is undefined)
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/AdminDashboard.tsx:5162:66
+map@[native code]
+AdminDashboard@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/src/screens/AdminDashboard.tsx:5158:30
+react_stack_bottom_frame@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:14139:21
+renderWithHooks@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:4397:37
+updateFunctionComponent@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:5772:31
+runWithFiberInDEV@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:941:131
+performUnitOfWork@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9145:109
+workLoopSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9041:54
+renderRootSync@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9025:18
+performWorkOnRoot@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:8712:41
+performSyncWorkOnRoot@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9839:21
+flushSyncWorkAcrossRoots_impl@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/react-dom_client.js:9756:323
+processRootScheduleInMicrotask@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/dep
+
+----------------------------------------
+
+[02:12:58 PM] [ERROR] [ADMIN /admin-auth] Firebase: Error (auth/email-already-in-use).
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: This email is already registered. Please sign in with your password or use Google Sign-In.
+
+----------------------------------------
+
+[02:12:58 PM] [ERROR] [ADMIN /admin-auth] BUTTON: "Admin Portal Login" — Firebase: Error (auth/email-already-in-use).
+Backend Linked: users/{adminUid}
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): Verify administrator email and password.
+
+----------------------------------------
+
+[02:12:54 PM] [ERROR] [ADMIN /admin-auth] Firebase: Error (auth/email-already-in-use).
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: This email is already registered. Please sign in with your password or use Google Sign-In.
+
+----------------------------------------
+
+[02:12:54 PM] [ERROR] [ADMIN /admin-auth] BUTTON: "Admin Portal Login" — Firebase: Error (auth/email-already-in-use).
+Backend Linked: users/{adminUid}
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): Verify administrator email and password.
+
+----------------------------------------
+
+[02:12:23 PM] [ERROR] [ADMIN /admin-auth] Firebase: Error (auth/invalid-credential).
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to enter: Enter the registered email and password (minimum 6 characters), or click "Register Now" to create a new account.
+
+----------------------------------------
+
+[02:12:23 PM] [ERROR] [ADMIN /admin-auth] BUTTON: "Admin Portal Login" — Firebase: Error (auth/invalid-credential).
+Backend Linked: users/{adminUid}
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): Verify administrator email and password.
+
+----------------------------------------
+
+[02:04:41 PM] [ERROR] [CUSTOMER /] FirebaseError: Missing or insufficient permissions.
+Backend Linked: App Runtime / Firestore
+Database Status: DB NOT UPDATED ❌
+Suggestion (What to Enter): What to do: Ensure you are signed in with your Seller/Admin account. Firestore security rules require matching sellerId/uid.
+Details:
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14288:136
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:14261:7
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:2549:4
+Rb@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1437:126
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1306:45
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1237:34
+ab@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:953:22
+F@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:923:9
+Wc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1977:14
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1972:5
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1969:61
+Lc@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1866:52
+@https://ais-dev-2bw3zvoqngwrx5vmlxoiva-55915102076.asia-east1.run.app/node_modules/.vite/deps/firebase_firestore.js:1833:26

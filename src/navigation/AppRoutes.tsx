@@ -24,6 +24,7 @@ import TermsPrivacyScreen from '@/screens/TermsPrivacyScreen';
 import { RestaurantMapWindow } from '@/plugins/restaurantMap/screens/RestaurantMapWindow';
 import { StorefrontScreen } from '@/plugins/restaurantMap/screens/StorefrontScreen';
 import { PluginSellerDashboard } from '@/plugins/restaurantMap/screens/PluginSellerDashboard';
+import { DeliveryPartnerDashboard } from '@/plugins/restaurantMap/screens/DeliveryPartnerDashboard';
 import { useAuth } from '@/context/AuthContext';
 import { UserRole } from '@/models/types';
 
@@ -102,6 +103,7 @@ export const AppRoutes = () => {
       <Route path="/restaurant-map" element={<RestaurantMapWindow />} />
       <Route path="/r/:restaurantSlug" element={<StorefrontScreen />} />
       <Route path="/plugin-seller-dashboard" element={<PluginSellerDashboard />} />
+      <Route path="/delivery-partner-dashboard" element={<DeliveryPartnerDashboard />} />
 
       {/* Auth Routes */}
       <Route path="/customer-auth" element={<CustomerAuthScreen />} />

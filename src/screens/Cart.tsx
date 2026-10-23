@@ -286,7 +286,7 @@ const CartScreen: React.FC = () => {
   };
 
   const handlePlaceOrder = async () => {
-    if (items.length === 0) return;
+    if (!items || items.length === 0) return;
 
     setPlacingOrder(true);
     setError(null);

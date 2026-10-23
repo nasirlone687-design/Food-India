@@ -33,6 +33,11 @@ export const pluginOrderService = {
     sellerId: string;
     items: PluginCartItem[];
     deliveryFee: number;
+    deliveryType?: 'restaurant_delivery' | 'map_partner_delivery';
+    deliveryPartnerId?: string;
+    deliveryPartnerName?: string;
+    deliveryPartnerPhone?: string;
+    roundTripDistanceKm?: number;
   }): Promise<PluginOrder> {
     const orderId = uuidv4();
     const orderNumber = `MAP-${Math.floor(100000 + Math.random() * 900000)}`;
@@ -67,7 +72,7 @@ export const pluginOrderService = {
     const totalAmount = Math.round((itemSubtotal + params.deliveryFee) * 100) / 100;
     const nowIso = new Date().toISOString();
 
-    const newOrder: PluginOrder = {
+    const rawOrderPayload: Record<string, any> = {
       orderId,
       orderNumber,
       customerId: params.customerId,
@@ -75,8 +80,8 @@ export const pluginOrderService = {
       customerPhone: params.customerPhone || '',
       deliveryAddress: params.deliveryAddress || 'Address not provided',
       deliveryNote: params.deliveryNote || '',
-      customerLat: params.customerLat,
-      customerLng: params.customerLng,
+      ...(params.customerLat !== undefined ? { customerLat: params.customerLat } : {}),
+      ...(params.customerLng !== undefined ? { customerLng: params.customerLng } : {}),
       restaurantId: params.restaurantId,
       restaurantName: params.restaurantName,
       restaurantPhone: params.restaurantPhone || '',
@@ -87,6 +92,11 @@ export const pluginOrderService = {
       totalAmount,
       paymentMethod: 'COD',
       orderStatus: 'pending',
+      deliveryType: params.deliveryType || 'restaurant_delivery',
+      ...(params.deliveryPartnerId ? { deliveryPartnerId: params.deliveryPartnerId } : {}),
+      ...(params.deliveryPartnerName ? { deliveryPartnerName: params.deliveryPartnerName } : {}),
+      ...(params.deliveryPartnerPhone ? { deliveryPartnerPhone: params.deliveryPartnerPhone } : {}),
+      ...(params.roundTripDistanceKm !== undefined ? { roundTripDistanceKm: params.roundTripDistanceKm } : {}),
       statusHistory: [
         {
           status: 'pending',
@@ -98,19 +108,29 @@ export const pluginOrderService = {
       updatedAt: serverTimestamp(),
     };
 
-    await setDoc(doc(ORDERS_COL, orderId), newOrder);
-    return newOrder;
+    // Strip any remaining undefined keys
+    const sanitizedOrder: any = {};
+    Object.keys(rawOrderPayload).forEach((k) => {
+      if (rawOrderPayload[k] !== undefined) {
+        sanitizedOrder[k] = rawOrderPayload[k];
+      }
+    });
+
+    await setDoc(doc(ORDERS_COL, orderId), sanitizedOrder);
+    return { ...sanitizedOrder, orderId } as PluginOrder;
   },
 
-  // Subscribe to live orders for a specific seller
-  subscribeSellerOrders(sellerId: string, restaurantId: string, callback: (orders: PluginOrder[]) => void) {
+  // Subscribe to live orders for a specific seller or all orders for delivery partner
+  subscribeSellerOrders(sellerId: string, restaurantId: string = '', callback: (orders: PluginOrder[]) => void = () => {}) {
     return onSnapshot(
       ORDERS_COL,
       (snap) => {
         const all = snap.docs.map((d) => ({ ...d.data(), orderId: d.id } as PluginOrder));
-        const filtered = all.filter(
-          (o) => o.sellerId === sellerId || o.restaurantId === restaurantId
-        );
+        const filtered =
+          sellerId === 'all' || restaurantId === 'all'
+            ? all
+            : all.filter((o) => o.sellerId === sellerId || o.restaurantId === restaurantId);
+
         filtered.sort((a, b) => {
           const ta = a.createdAt?.seconds ? a.createdAt.seconds * 1000 : 0;
           const tb = b.createdAt?.seconds ? b.createdAt.seconds * 1000 : 0;

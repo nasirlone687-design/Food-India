@@ -120,8 +120,6 @@ export const GpsPermissionModal: React.FC<GpsPermissionModalProps> = ({
       if (!customAddress) setCustomAddress(fromProfile.address);
     } else {
       setGps(null);
-      // Automatically request real phone GPS when the modal opens
-      handleRequestLivePhoneGps();
     }
   }, [isOpen]);
 
@@ -421,7 +419,7 @@ export const GpsPermissionModal: React.FC<GpsPermissionModalProps> = ({
             </div>
             <div className="min-w-0">
               <span className="text-[10px] font-black uppercase tracking-widest text-orange-100 block">
-                {compulsory ? 'Compulsory Location Access (Saved in Firestore)' : 'Real Device Hardware GPS'}
+                {compulsory ? 'Location Access (Saved in Firestore)' : 'Phone GPS & Cell Link'}
               </span>
               <h3 className="text-base sm:text-lg font-black leading-tight truncate">{title}</h3>
             </div>

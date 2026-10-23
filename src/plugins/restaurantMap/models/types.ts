@@ -82,6 +82,43 @@ export type PluginOrderStatus =
   | 'delivered'
   | 'cancelled';
 
+export interface PluginDeliveryPartner {
+  partnerId: string;
+  userId?: string;
+  name: string;
+  phone: string;
+  whatsappNumber?: string;
+  vehicleType: 'bike' | 'scooter' | 'auto' | 'van';
+  vehicleNumber: string;
+
+  // Document URLs / Base64 / Descriptions
+  identityDocUrl?: string; // Aadhaar / PAN / Govt ID
+  licenseDocUrl?: string;  // Driving License
+  vehicleRcUrl?: string;   // Vehicle RC (Registration Certificate)
+  vehicleInsuranceUrl?: string; // Vehicle Insurance / Permit Document
+
+  // Location
+  latitude: number;
+  longitude: number;
+  currentAddress?: string;
+  isOnline: boolean;
+
+  // Custom Pricing per Km
+  baseDeliveryPrice: number; // e.g. ₹20
+  pricePerKm: number;       // e.g. ₹10 per km
+
+  // Approval & ₹299 Monthly Subscription Status
+  approvalStatus: 'approved' | 'pending' | 'rejected';
+  subscriptionStatus: 'active' | 'expired' | 'pending_payment';
+  monthlyFeeAmount: number; // 299
+  subscriptionExpiryDate?: string;
+
+  rating?: number;
+  totalDeliveries?: number;
+  createdAt?: any;
+  updatedAt?: any;
+}
+
 export interface PluginOrder {
   orderId: string;
   orderNumber: string;
@@ -103,6 +140,14 @@ export interface PluginOrder {
   paymentMethod: 'COD';
   orderStatus: PluginOrderStatus;
   rejectionReason?: string;
+
+  // Delivery Partner Dispatch Fields
+  deliveryType?: 'restaurant_delivery' | 'map_partner_delivery';
+  deliveryPartnerId?: string;
+  deliveryPartnerName?: string;
+  deliveryPartnerPhone?: string;
+  roundTripDistanceKm?: number;
+
   statusHistory: {
     status: PluginOrderStatus;
     timestamp: string;

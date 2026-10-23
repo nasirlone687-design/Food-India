@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PluginRestaurant, PluginMapSettings, PluginOrder } from '../models/types';
+import { PluginRestaurant, PluginMapSettings, PluginOrder, PluginDeliveryPartner } from '../models/types';
 import { pluginSettingsService } from '../services/pluginSettingsService';
 import { pluginRestaurantService } from '../services/pluginRestaurantService';
 import { pluginOrderService } from '../services/pluginOrderService';
+import { pluginDeliveryPartnerService } from '../services/pluginDeliveryPartnerService';
 import { LeafletMapContainer } from '../components/LeafletMapContainer';
 import { HalfScreenMenuPanel } from '../components/HalfScreenMenuPanel';
 import { JoinRestaurantModal } from '../components/JoinRestaurantModal';
+import { DeliveryPartnerModal } from '../components/DeliveryPartnerModal';
 import { useAuth } from '../../../context/AuthContext';
 import { requestLiveGpsLocation, loadSavedLiveGpsLocation } from '../../../utils/gps';
 import {
@@ -21,6 +23,7 @@ import {
   CheckCircle2,
   X,
   Plus,
+  Truck,
 } from 'lucide-react';
 
 export const RestaurantMapWindow: React.FC = () => {
@@ -29,7 +32,9 @@ export const RestaurantMapWindow: React.FC = () => {
 
   const [settings, setSettings] = useState<PluginMapSettings | null>(null);
   const [restaurants, setRestaurants] = useState<PluginRestaurant[]>([]);
+  const [deliveryPartners, setDeliveryPartners] = useState<PluginDeliveryPartner[]>([]);
   const [selectedRestaurant, setSelectedRestaurant] = useState<PluginRestaurant | null>(null);
+  const [selectedPartner, setSelectedPartner] = useState<PluginDeliveryPartner | null>(null);
   const [showJoinModal, setShowJoinModal] = useState<boolean>(false);
   const [showOrdersModal, setShowOrdersModal] = useState<boolean>(false);
   const [myOrders, setMyOrders] = useState<PluginOrder[]>([]);
@@ -59,6 +64,14 @@ export const RestaurantMapWindow: React.FC = () => {
   useEffect(() => {
     const unsub = pluginRestaurantService.subscribeApprovedRestaurants((list) => {
       setRestaurants(list);
+    });
+    return () => unsub();
+  }, []);
+
+  // Subscribe to live delivery partners with vehicle symbols
+  useEffect(() => {
+    const unsub = pluginDeliveryPartnerService.subscribeLivePartners((list) => {
+      setDeliveryPartners(list);
     });
     return () => unsub();
   }, []);
@@ -154,29 +167,28 @@ export const RestaurantMapWindow: React.FC = () => {
                   Restaurant Map
                 </h1>
                 <p className="text-[10px] font-bold text-slate-400 truncate">
-                  {filteredRestaurants.length} Registered Kitchens Nearby
+                  {filteredRestaurants.length} Kitchens • {deliveryPartners.length} Live Drivers
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 shrink-0">
-              {myOrders.length > 0 && (
-                <button
-                  type="button"
-                  onClick={() => setShowOrdersModal(true)}
-                  className="px-2.5 py-1.5 bg-orange-50 text-orange-600 rounded-xl text-[11px] font-black uppercase tracking-wider flex items-center gap-1 border border-orange-200"
-                >
-                  <ShoppingBag size={13} />
-                  <span>Orders ({myOrders.length})</span>
-                </button>
-              )}
+            <div className="flex items-center gap-1.5 shrink-0">
+              <button
+                type="button"
+                onClick={() => navigate('/delivery-partner-dashboard')}
+                className="px-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-[10px] font-black uppercase tracking-wider transition-colors flex items-center gap-1 shadow-sm"
+                title="Delivery Partner Registration & Live Dashboard"
+              >
+                <Truck size={12} />
+                <span className="hidden sm:inline">Join Driver</span>
+              </button>
 
               <button
                 type="button"
                 onClick={() => setShowJoinModal(true)}
-                className="px-3 py-1.5 bg-slate-900 hover:bg-orange-600 text-white rounded-xl text-[11px] font-black uppercase tracking-wider transition-colors flex items-center gap-1 shadow-sm"
+                className="px-2.5 py-1.5 bg-slate-900 hover:bg-orange-600 text-white rounded-xl text-[10px] font-black uppercase tracking-wider transition-colors flex items-center gap-1 shadow-sm"
               >
-                <Plus size={13} />
+                <Plus size={12} />
                 <span>Join Kitchen</span>
               </button>
             </div>
@@ -236,12 +248,15 @@ export const RestaurantMapWindow: React.FC = () => {
         </div>
       </header>
 
-      {/* Main Interactive Map View (Leaflet OpenStreetMap) */}
+      {/* Main Interactive Map View (Leaflet OpenStreetMap with Live Vehicles) */}
       <main className="flex-1 w-full h-full relative z-0">
         <LeafletMapContainer
           restaurants={filteredRestaurants}
           selectedRestaurant={selectedRestaurant}
           onSelectRestaurant={(r) => setSelectedRestaurant(r)}
+          deliveryPartners={deliveryPartners}
+          selectedPartner={selectedPartner}
+          onSelectPartner={(p) => setSelectedPartner(p)}
           userLocation={userLocation}
           onRequestLocation={handleLocateMe}
           isLocating={isLocating}
@@ -253,6 +268,17 @@ export const RestaurantMapWindow: React.FC = () => {
         <HalfScreenMenuPanel
           restaurant={selectedRestaurant}
           onClose={() => setSelectedRestaurant(null)}
+          userLocation={userLocation}
+          availablePartners={deliveryPartners}
+        />
+      )}
+
+      {/* Delivery Partner Detail Modal overlay when vehicle marker is tapped */}
+      {selectedPartner && (
+        <DeliveryPartnerModal
+          partner={selectedPartner}
+          onClose={() => setSelectedPartner(null)}
+          selectedRestaurant={selectedRestaurant}
           userLocation={userLocation}
         />
       )}
